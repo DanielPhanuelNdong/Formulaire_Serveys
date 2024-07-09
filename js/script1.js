@@ -203,22 +203,22 @@ checbox_non5.addEventListener('change', () => {
 })
 
 // bouton validation.....................................
-const valider = document.getElementById('valider')
-const annuler = document.getElementById('annuler')
+//const valider = document.getElementById('valider')
+//const annuler = document.getElementById('annuler')
 const disp = getSelection('.disp')
-const modal = document.getElementById('mod')
-const close_modal = document.getElementById('annul')
-const valider_modal = document.getElementById('valid')
+//const modal = document.getElementById('mod')
+//const close_modal = document.getElementById('annul')
+//const valider_modal = document.getElementById('valid')
 
-valider.addEventListener('click', () => {
-    modal.classList.remove('disp')
-})
-close_modal.addEventListener('click', () => {
-    modal.classList.add('disp')
-})
-valider_modal.addEventListener('click', () => {
-    modal.classList.add('disp')
-})
+//valider.addEventListener('click', () => {
+//    modal.classList.remove('disp')
+//})
+//close_modal.addEventListener('click', () => {
+//    modal.classList.add('disp')
+//})
+//valider_modal.addEventListener('click', () => {
+//    modal.classList.add('disp')
+//})
 
 // modal pour afficher l'image apres un click sur l'image
 const images = document.querySelectorAll('.imgs')
@@ -254,4 +254,21 @@ const tableau_2 = document.getElementById('tableau_2')
 
 wifi.addEventListener('click', () => {
     tableau_2.classList.contains('disp') ? tableau_2.classList.remove('disp') : tableau_2.classList.add('disp')
+})
+
+// ouvrir et fermer la sidebar
+const monMenu = document.getElementById('monMenu')
+const cancelMenu = document.getElementById('CancelMenu')
+const maSidebar = document.getElementById('maSidebar')
+const Mesh3 = document.getElementById('Mesh3')
+
+Mesh3.addEventListener('click', () => {
+    maSidebar.classList.add('col1none')
+})
+monMenu.addEventListener('click', () => {
+    maSidebar.classList.remove('col1none')
+})
+
+cancelMenu.addEventListener('click', () => {
+    maSidebar.classList.add('col1none')
 })

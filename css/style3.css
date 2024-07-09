@@ -16,13 +16,32 @@ body {
 
 header {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
     padding-right: 50px;
     width: 100%;
     height: 60px;
     box-shadow: 5px 5px 10px #e3e3e4;
     position: fixed;
     background-color: #ffffff;
+}
+.monMenu{
+    margin-left: 20px;
+    
+}
+.monMenu img{
+    display: none;
+    height: 40px;
+    width: 40px;
+}
+.fermer_menu{
+    display: none;
+}
+.fermer_menu img{
+    display: none;
+    height: 40px;
+    width: 40px;
 }
 
 header nav {
@@ -58,7 +77,7 @@ nav h1 {
     background-color: rgb(255, 255, 255);
 } */
 .section1 h3 {
-    padding: 20px;
+    padding: 1.1vw;
     transition: .5s;
 }
 
@@ -75,6 +94,9 @@ nav h1 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    transition: .5s ease;
+    /* transform: translateX(-100px); */
+    
 }
 
 /* modal ...................................... */
@@ -113,6 +135,8 @@ nav h1 {
 }
 
 .body-modal p {
+    text-align: center;
+    margin-inline: 15px;
     margin-top: 50px;
     font-size: 20px;
     color: #171d34;
@@ -140,7 +164,7 @@ nav h1 {
     background-color: #ffffff;
     border: #ec910a 2px solid;
     color: #29325b;
-    font-size: .9vw;
+    font-size: 12px;
     font-weight: bolder;
     transition: 1s all ease-in-out;
 }
@@ -157,7 +181,7 @@ nav h1 {
     background-color: #ec910a;
     border: none;
     color: #ffffff;
-    font-size: 1vw;
+    font-size: 12px;
     font-weight: bolder;
     transition: 1s all ease-in-out;
 }
@@ -166,7 +190,7 @@ nav h1 {
     background-color: #171d34;
 }
 
-.col1 img {
+.col1 .logsow {
     margin-top: 5px;
     width: 82%;
 }
@@ -175,7 +199,7 @@ nav h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .col1 h1 {
@@ -186,7 +210,7 @@ nav h1 {
 .col2 {
     width: 80%;
     padding-top: 70px;
-    padding-left: 260px;
+    padding-left: 215px;
 }
 
 .div1 {
@@ -197,6 +221,7 @@ nav h1 {
     align-content: center;
     align-items: center;
     color: #171d34;
+    padding-left: 20px;
     transition: .5s;
 }
 
@@ -206,6 +231,7 @@ nav h1 {
     align-content: center;
     align-items: center;
     color: #171d34;
+    font-size: 12px;
 }
 
 .div1 button {
@@ -216,7 +242,7 @@ nav h1 {
     border: none;
     border-radius: 10px;
     color: #fefefe;
-    font-size: 1.5vw;
+    font-size: 15px;
     font-weight: bolder;
     transition: .7s;
 }
@@ -255,7 +281,7 @@ nav h1 {
 
 /* tableau */
 .tableau {
-    width: 95%;
+    width: 92%;
     background-color: #ffffff;
     margin-top: 30px;
     margin: 30px;
@@ -266,6 +292,7 @@ nav h1 {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
+    align-self: center;
 }
 
 .tableau p {
@@ -282,6 +309,7 @@ table {
     border-collapse: collapse;
     border: #e0e0e3 1px solid;
     margin-top: 20px;
+    margin-left: 30px;
     align-self: center;
     margin-bottom: 20px;
     border-collapse: collapse;
@@ -391,7 +419,7 @@ tbody tr:hover {
 }
 
 .cover-check-second {
-    margin-left: 30px;
+    margin-left: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -474,14 +502,14 @@ tbody tr:hover {
     padding-inline: 10px;
 }
 
-#valider button, #annuler button {
+#valider, #annuler {
     padding: 10px;
     background-color: #ec910a;
     color: #ffffff;
     border: none;
 }
 
-#valider button:hover, #annuler button:hover {
+#valider:hover, #annuler:hover {
     background-color: #f3c27a;
 }
 
@@ -537,6 +565,7 @@ tbody tr:hover {
 
 .v-gps {
     margin-left: 15px;
+    margin-top: 15px;
 }
 
 /* textaria pour la description de l'environnement */
@@ -580,7 +609,7 @@ tbody tr:hover {
 /* styles sur l'image */
 .contenant-images {
     border: #e8e8e9 2px solid;
-    margin-left: 40px;
+    margin-inline: 30px;
     margin-top: 20px;
     padding: 10px;
     display: flex;
@@ -596,7 +625,14 @@ tbody tr:hover {
 }
 
 .contenant-images div button {
-    width: 70px;
+    background-color: #f39f22;
+    color: white;
+    font-weight: bolder;
+    width: 60px;
+    border: none;
+}
+.contenant-images div button:hover {
+    background-color: #29325b;
 }
 
 #image {
@@ -644,8 +680,14 @@ tbody tr:hover {
     flex-wrap: wrap;
     margin: 30px;
 }
+.clientelle div{
+    margin-bottom: 15px;
+}
 
 /* wifi */
+.second2{
+    margin-bottom: 15px;
+}
 .wifi{
     display: flex;
     flex-wrap: wrap;
@@ -720,13 +762,14 @@ tbody tr:hover {
 .sub{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     align-content: center;
     margin-left: 350px;
 }
 .sub button{
     margin-inline: 10px;
+    margin-bottom: 15px;
     padding-block: 6px;
     padding-inline: 20px;
     background-color: #4f5e9b;
@@ -743,3 +786,313 @@ tbody tr:hover {
     align-items: center;
     align-content: center;
 }
+
+
+
+/* aspect responsive............................................................... */
+/* Style1................... */
+@media (max-width: 920px) {
+    /* .tableau {
+        width: 95%;
+        background-color: #ffffff;
+        margin: 10px;
+        box-shadow: 5px 5px 10px #e3e3e4;
+        border: #eeeeef 3px solid;
+        padding-bottom: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+    } */
+
+    .col2 {
+        /* width: 80%;
+        padding-top: 70px; */
+        padding-left: 150px;
+    }
+
+    .partie1-form {
+        display: block;
+    }
+    .partie1-form div{
+        margin-top: 20px;
+    }
+
+    /* les coordonnees gps */
+    .gp{
+        margin-bottom: 10px;
+    }
+
+    /* sidebar */
+    .col1 h3 {
+        align-self: center;
+        font-size: 13px;
+    }
+}
+
+
+
+/* Style2................... */
+@media (max-width: 750px) {
+    /* sidebar */
+    .col1none{
+        
+        display: none;
+        transition: 1s ease;
+    }
+
+    /* o */
+
+    .col2 {
+        width: 100%;
+        padding-left: 15px;
+    }
+
+    /* .tableau */
+    .tableau {
+        width: 100%;
+        margin-top: 10px;
+        margin: 5px;
+    }
+
+    .col2 {
+        width: 100%;
+    }
+
+    /* separateurs  */
+    .hr1 {
+        width: 320px;
+        margin-inline: 2px;
+        margin-top: 5px;
+    }
+    
+    .hr2 {
+        margin-inline: 2px;
+        margin-bottom: 5px;
+    }
+    
+    .hr3 {
+        margin-inline: 2px;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+
+    /* wifi */
+    .wifi{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    /* tableau 2 */
+/* .tableau2{
+    width: 350px;
+} */
+table {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+}
+thead th {
+    padding-block: 3px;
+    font-size: 9px;
+}
+
+tbody td {
+    padding-block: 3px;
+    font-size: 10px;
+}
+
+/* bouton photos et modal photo .....................*/
+.imgs{
+    height: 50px;
+    width: 50px;
+}
+
+/* styles sur l'image */
+.contenant-images {
+    margin-inline: 5px;
+    margin-top: 2px;
+    padding: 2px;
+    font-size: 9px;
+}
+
+.contenant-images div {
+    width: 70px;
+    margin: 5px;
+}
+
+.contenant-images div button {
+    font-size: 10px;
+    width: 70px;
+}
+
+/* ajouts-photos */
+.ajouts-photos {
+    font-size: 10px;
+}
+.ajouts-photos button {
+    margin-top: 13px;
+    margin-left: 70px;
+    padding: 5px;
+    font-size: 12pxpx;
+}
+
+.sub{
+    margin-left: 30px;
+}
+.sub button{
+    margin-inline: 5px;
+    margin-bottom: 5px;
+    padding-block: 5px;
+    padding-inline: 5px;
+}
+
+/* boutons annuler et valider */
+.group-submit {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.submit {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-inline: 5px;
+}
+#valider, #annuler {
+    padding: 7px;
+    background-color: #ec910a;
+    color: #ffffff;
+    border: none;
+}
+
+/* navbar2 */
+.div111 {
+    font-size: 9px;
+}
+
+.div1 button {
+    margin-right: 20px;
+    padding-inline: 20px;
+    padding-block: 5px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+.contenu-modal {
+    width: 280px;
+    height: 240px;
+    border-radius: 10px;
+}
+
+
+.body-modal p {
+    margin-inline: 10px;
+    margin-top: 80px;
+    font-size: 12px;
+}
+
+.footer-modal {
+    height: 100px;
+}
+
+.close-modal {
+    margin-right: 10px;
+    padding-inline: 10px;
+    padding-block: 15px;
+    font-size: 10px;
+}
+
+.valider-modal {
+    margin-right: 10px;
+    padding-inline: 10px;
+    padding-block: 15px;
+    font-size: 10px;
+}
+
+/* image modal */
+.image-modal{
+    height: 200px;
+    width: 200px;
+}
+.contenu-modal-photo {
+    height: 260px;
+}
+.cancel-modal-photo{
+    height: 30px;
+    width: 30px;
+}
+
+/* header */
+header nav {
+    margin-right: 40px;
+}
+
+nav img {
+    height: 35px;
+    width: 35px;
+}
+
+nav h1 {
+    font-size: 10px;
+    color: #171d34;
+}
+#username{
+    font-size: 15px;
+}
+
+/* bouton de menu */
+
+.monMenu img{
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+
+/* fermer la sidebar */
+/* .col1 .Mesh3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50px;
+} */
+.col1 {
+    width: 150px;
+    transition: .5s ease;
+    /* transform: translateX(100px); */
+}
+.col1 div {
+    transition: .5s ease;
+    margin-top: 0px;
+}
+.fermer_menu{
+    display: flex;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.fermer_menu img{
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+
+/* faire disparetre l'image du logo */
+.logsow{
+    display: none;
+}
+
+}
+
+
+
+/* Style2................... */
+/* @media (max-width: 560px) {
+    .col2 {
+        width: 350px;
+    }
+} */

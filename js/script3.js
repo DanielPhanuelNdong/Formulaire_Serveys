@@ -92,7 +92,7 @@ function traiterevensrvapp(e)
 								// case 'echecmdeobtenirunetransaction':
 								// case 'echecmdeobtenirunwallet':
 								// case 'echecmdeobtenirlestransactionswallet':
-									rendermessage(resp.body.data.msg, 0);
+									//rendermessage(resp.body.data.msg, 0);
 									//supprimercontainer('loaderblock');
 									break;
 							}
@@ -101,7 +101,7 @@ function traiterevensrvapp(e)
 			}
 			catch(err)
 			{
-				rendermessage(err, 0);
+				//rendermessage(err, 0);
 				//supprimercontainer('loaderblock');
 			}
             break;
@@ -333,18 +333,6 @@ function getdata(pkey)
 {
 	return sessionStorage.getItem(pkey);
 }
-
-// fonction construire la vue creationservey à partir de creer
-function creerconstcreationservey(){
-	construirevue('webresposervey', 'creationservey');
-}
-
-// fonction construire la vue editionserveys à partir de lbgestionserveys
-function lbgestionserveyscosnteditionservey(){
-    construirevue('webresposervey', 'editionserveys');
-}
-
-lbgestionserveys
 
 function traiterevenform(e)
 {

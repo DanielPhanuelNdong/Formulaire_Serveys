@@ -13,6 +13,9 @@
 
 <body id="webresposervey">
     <header>
+        <div class="monMenu">
+            <img id="monMenu" src="images/monMenu.png" alt="" srcset="">
+        </div>
         <nav>
             <img src="images/avatar.png" alt="avatar" srcset="">
             <h2 id="username"></h2>
@@ -20,8 +23,11 @@
     </header>
     
     <section class="section1">
-        <div class="col1">
-            <img src="images/Sowitel_.png" alt="Sowitel" srcset="">
+        <div class="col1 col1none" id="maSidebar">
+            <img class="logsow" src="images/Sowitel_.png" alt="Sowitel" srcset="">
+            <div class="fermer_menu">
+                <img id="CancelMenu"  src="images/cancelMenu.png" alt="Fermer" srcset="">
+            </div>
             <div id="Mesh3">
                 <div class="mes s" data-table ="table0">
                     <h3 class="hh3" id="lbgestionserveys"><i class="fa-regular fa-user"></i></h3>
@@ -32,14 +38,14 @@
             </div>
         </div>
         <div class="col2">
-            <section class="modal disp" id="mod">
+            <section class="modal" id="mod" style="display: none;">
                 <div class="contenu-modal">
                     <div class="body-modal">
-                        <p>Voulez-vous vraiment valider ?</p>
+                        <p id="confirm-mod"></p>
                     </div>
                     <div class="footer-modal">
-                        <button type="button" class="close-modal" id="annul">Annuler</button>
-                        <button type="button" class="valider-modal" id="valid">Valider</button>
+                        <button type="button" class="close-modal" id="annul"></button>
+                        <button type="button" class="valider-modal" id="valid"></button>
                     </div>
                 </div>
             </section>
@@ -86,7 +92,7 @@
                 
                 <!-- partie formulaire -->
                 
-            <div class="formulaire" id="creationservey">
+            <div class="formulaire" id="formservey">
                 <!-- Formulaire Serveys id=para-->
                 <p id="lbinfoservey"> </p> 
                 <Form method="post" action="">
@@ -94,48 +100,22 @@
                     <div class="partie1-form">
                         <div>
                             <label class="partie1-label" for="site" id="lbnomsite"></label>
-                        <input id="placenomsite" class="partie1-select-input" name="site" type="text" placeholder="" required>
+                        <input id="nomsite" class="partie1-select-input" name="site" type="text" placeholder="" required>
                         </div>
                         <div>
                             <label class="partie1-label" for="reseau" id="lbnomreseau"></label>
-                        <input id="placenomreseau" class="partie1-select-input" name="reseau" type="text" placeholder="" required>
+                        <input id="nomreseau" class="partie1-select-input" name="reseau" type="text" placeholder="" required>
                         </div>
                         <div>
                             <label class="partie1-label"for="pays" id="lbpays"></label>
                         <select class="partie1-select-input" name="pays" id="pays" required>
                             <option value=""></option>
-                            <option value="France">France</option>
-                            <option value="Belgique">Belgique</option>
-                            <option value="Suisse">Suisse</option>
-                            <option value="Allemagne">Allemagne</option>
-                            <option value="Italie">Italie</option>
-                            <option value="Espagne">Espagne</option>
-                            <option value="Portugal">Portugal</option>
-                            <option value="Angleterre">Angleterre</option>
-                            <option value="Pays-Bas">Pays-Bas</option>
-                            <option value="Chine">Chine</option>
-                            <option value="Japon">Japon</option>
-                            <option value="Russie">Russie</option>
-                            <option value="Inde">Inde</option>
                         </select>
                         </div>
                         <div>
                             <label class="partie1-label" for="ville" id="lbville"></label>
                         <select class="partie1-select-input" name="ville" id="ville" required>
                             <option value=""></option>
-                            <option value="Paris">Paris</option>
-                            <option value="Marseille">Marseille</option>
-                            <option value="Lyon">Lyon</option>
-                            <option value="Toulouse">Toulouse</option>
-                            <option value="Nice">Nice</option>
-                            <option value="Nantes">Nantes</option>
-                            <option value="Strasbourg">Strasbourg</option>
-                            <option value="Bordeaux">Bordeaux</option>
-                            <option value="Lille">Lille</option>
-                            <option value="Rennes">Rennes</option>
-                            <option value="Reims">Reims</option>
-                            <option value="Toulon">Toulon</option>
-                            <option value="Grenoble">Grenoble</option>
                         </select>
                         </div>
                         <div>
@@ -165,7 +145,7 @@
                                 </div>
                             <div class="cover-check-second disp" id="hauteur">
                                 <label  for="hauteur" id="lbhauteur"></label>
-                            <input id="placehauteur" name="hauteur" type="text" placeholder="" required>
+                            <input id="hauteurimmeuble" name="hauteur" type="text" placeholder="" required>
                             </div>
                             </div>
                         <div class="ensemble-cover-check disp" id="dalles">
@@ -186,7 +166,7 @@
                             </div>
                             <div class="cover-check-second disp" id="etat_dalles">
                                 <label  for="etat" id="lbetatdal"></label>
-                            <input id="placetatdal" type="text" name="etat" placeholder="">
+                            <input id="descrdalle" type="text" name="etat" placeholder="">
                             </div>
                         </div>
                         </div>
@@ -224,9 +204,9 @@
                             </div>
                             <div class="cover-check-second" id="gps">
                                 <label class="v-gps" for="GPS" id="lbcoordgps"></label>
-                            <input id="placelongitude" class="v-gps" name="GPS" type="text" placeholder="" required>
-                            <input id="placelatitude" class="v-gps" name="GPS" type="text" placeholder="" required>
-                            <input id="placeadresse" class="v-gps" name="GPS" type="text" placeholder="" required>
+                            <input id="longitude" class="v-gps" name="GPS" type="text" placeholder="" required>
+                            <input id="latitude" class="v-gps" name="GPS" type="text" placeholder="" required>
+                            <input id="adresse" class="v-gps" name="GPS" type="text" placeholder="" required>
                             </div>
                         </div>
                         <div class="ensemble-cover-check">
@@ -238,8 +218,8 @@
                                     </label>
                                     <input type="checkbox" name="oui" id="oui4" required>
                                 </div>
-                                <div class="block-check-non" id="lboperateurexistnon">
-                                    <label for="non">
+                                <div class="block-check-non">
+                                    <label id="lboperateurexistnon" for="non">
                                     </label>
                                     <input type="checkbox" name="non" id="non4" required>
                                 </div>
@@ -262,11 +242,11 @@
                     <div class="clientelle">
                         <div class="cover-check-second" >
                             <label for="mobile" id="lbmobile"></label>
-                        <input id="placembile" name="mobile" type="text" placeholder="" required>
+                        <input id="clientmobile" name="mobile" type="text" placeholder="" required>
                         </div>
                         <div class="cover-check-second" >
-                            <label for="b" id="lbBtoB"></label>
-                        <input id="placeBtoB" name="b" type="text" placeholder="" required>
+                            <label for="b" id="lbbtob"></label>
+                        <input id="clientbtob" name="b" type="text" placeholder="" required>
                         </div>
                     </div>
                     <hr class="hr2">
@@ -287,32 +267,6 @@
                                         <th>Canal</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>mrfrf</td>
-                                        <td>rwfsftsd</td>
-                                        <td>frddddcc</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>mrfrf</td>
-                                        <td>srevcxdd</td>
-                                        <td>jhhhhhhg</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>mrfrf</td>
-                                        <td>raasdggs</td>
-                                        <td>jhhhhhhg</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>mrfrf</td>
-                                        <td>asgdjddd</td>
-                                        <td>jhhhhhhg</td>
-                                    </tr>
-                                </tbody>
                             </table>
                             <div>
                                 <button type="button">Créer</button>
@@ -352,7 +306,7 @@
                     <hr class="hr2">
                     <div class="descript">
                         <!-- <label class="partie2-label"  for="Description">Description de l'environnement</label> -->
-                    <Textarea id="placedescriptenviron" class="desc-environnement" name="Description" placeholder="Description de l'environnement"></Textarea>
+                    <Textarea id="descriptenviron" class="desc-environnement" name="Description" placeholder="Description de l'environnement"></Textarea>
                     </div>
                     <div class="ajouts-photos">
                         <div>
@@ -384,18 +338,18 @@
                         </div>
                     </div><hr class="hr3">
                     <div class="group-s-b">
-                        <div class="group-submit">
-                            <div class="submit" id="valider">
-                                <button type="button">Valider</button>
+                        <div class="group-submit" id='creationservey'>
+                            <div class="submit">
+                                <button  id="valider" type="button"></button>
                             </div>
-                            <div class="submit" id="annuler">
-                                <button type="button">Annuler</button>
+                            <div class="submit">
+                                <button  id="annuler" type="button"></button>
                             </div>
                         </div>
-                        <div class="group-bouton">
-                            <button type="button">Modifier</button>
-                            <button type="button">Supprimer</button>
-                            <button id="btnsoumcreatservey" type="button"></button>
+                        <div class="group-bouton" id ='bouts'>
+                            <button type="button" id="btnmodifservey"></button>
+                            <button type="button" id="btnsuppservey"></button>
+                            <button id="btnsoumservey" type="button"></button>
                         </div>
                     </div>
                 </Form >
