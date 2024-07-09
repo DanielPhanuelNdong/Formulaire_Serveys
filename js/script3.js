@@ -59,15 +59,25 @@ function traiterevensrvapp(e)
 									//supprimercontainer('loaderblock');
 									break;
 									
-								// case 'succescmdeobtenirlesadministrateurs':
-								// 	mettreajourtable('administrateurs', resp.body.data.administrateurs);
-								// 	//supprimercontainer('loaderblock');
-								// 	break;
+								case 'succescmdeobtenirlistepays':
+									mettreajourselectlist('pays', resp.body.data.listepays);
+									//supprimercontainer('loaderblock');
+									break;
 									
-								// case 'succescmdeobtenirleswallets':
-								// 	mettreajourtable('wallets', resp.body.data.wallets);
+								case 'succescmdeobtenirlisteville':
+								 	mettreajourselectlist('ville', resp.body.data.listeville);
 								// 	//supprimercontainer('loaderblock');
-								// 	break;
+								break;
+									
+								case 'succescmdeobtenirlisteoperateur':
+								 	mettreajourselectlist('lstoperateur', resp.body.data.listeoperateur);
+								// 	//supprimercontainer('loaderblock');
+								break;
+									
+								case 'succescmdecreerunservey':
+								 	initialiserunevue("editionserveys");
+								// 	//supprimercontainer('loaderblock');
+								break;
 							}
 					}				
 				}
@@ -84,15 +94,11 @@ function traiterevensrvapp(e)
 								case 'echecmodiflang':
 								case 'echecsedeconn':
 								case 'echecmdeobtenirleserveys':
-								// case 'echecmdeobtenirlesadministrateurs':
-								// case 'echecmdeobtenirleswallets':
-								// case 'echecmdeobtenirlesclients':
-								// case 'echecmdeobtenirlesagents':
-								// case 'echecmdeobtenirlestransactions':
-								// case 'echecmdeobtenirunetransaction':
-								// case 'echecmdeobtenirunwallet':
-								// case 'echecmdeobtenirlestransactionswallet':
-									//rendermessage(resp.body.data.msg, 0);
+								case 'echecmdeobtenirlistepays':
+								case 'echecmdeobtenirlisteville':
+								case 'echecmdeobtenirlisteoperateur':
+								case 'echecmdecreerunservey':
+									rendermessage(resp.body.data.msg, 0);
 									//supprimercontainer('loaderblock');
 									break;
 							}
@@ -101,7 +107,7 @@ function traiterevensrvapp(e)
 			}
 			catch(err)
 			{
-				//rendermessage(err, 0);
+				rendermessage(err, 0);
 				//supprimercontainer('loaderblock');
 			}
             break;
@@ -181,7 +187,9 @@ function initialisercomposant()
 				editerleserveys();
 				break;	
 				
-			
+			case 'creationservey':	
+				chargerlespays();
+				break;
 		}
 	}
 }
@@ -217,57 +225,80 @@ function editerleserveys()
 	envoyerequete(data);
 }
 
-function editerlesadministrateurs()
+function chargerlespays()
 {
 	var data = new FormData();
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', 'cmdeobtenirlesadministrateurs');
-	data.append('critere', "");
-	data.append('debut', 0);
-	data.append('limit', 100);
+	data.append('action', 'cmdeobtenirlistepays');
 	envoyerequete(data);
 }
 
-function editerleswallets()
+function chargerlesvilles()
 {
 	var data = new FormData();
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', 'cmdeobtenirleswallets');
-	data.append('critere', "");
-	data.append('debut', 0);
-	data.append('limit', 100);
+	data.append('action', 'cmdeobtenirlisteville');
+	data.append('codepays', getdata('codepays'));
 	envoyerequete(data);
 }
 
-function editerlesclients()
+function chargerlesoperateurs()
 {
 	var data = new FormData();
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', 'cmdeobtenirlesclients');
-	data.append('critere', "");
-	data.append('debut', 0);
-	data.append('limit', 100);
+	data.append('action', 'cmdeobtenirlisteoperateur');
+	data.append('codepays', getdata('codepays'));
 	envoyerequete(data);
 }
 
-function editerlesagents()
+function annulercreationservey(pnomvue)
 {
-	var data = new FormData();
-	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', 'cmdeobtenirlesagents');
-	data.append('critere', "");
-	data.append('debut', 0);
-	data.append('limit', 100);
-	envoyerequete(data);
+	sessionStorage.removeItem('nomreseau');
+	sessionStorage.removeItem('dateservey');
+	sessionStorage.removeItem('codepays');
+	sessionStorage.removeItem('codeville');
+	sessionStorage.removeItem('clientmobile');
+	sessionStorage.removeItem('clientbtob');
+	sessionStorage.removeItem('nomsite');
+	sessionStorage.removeItem('immeuble');
+	sessionStorage.removeItem('hauteur');
+	sessionStorage.removeItem('dalle');
+	sessionStorage.removeItem('descrdalle');
+	sessionStorage.removeItem('sourcelectrique');
+	sessionStorage.removeItem('priseterre');
+	sessionStorage.removeItem('operateurs');
+	sessionStorage.removeItem('codesoperateurs');
+	sessionStorage.removeItem('latitude');
+	sessionStorage.removeItem('longitude');
+	sessionStorage.removeItem('adresse');
+	sessionStorage.removeItem('descriptenviron');
+	initialiserunevue(pnomvue);
 }
 
-function editerlestransactions()
+function creationservey()
 {
 	var data = new FormData();
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', 'cmdeobtenirlestransactions');
-	data.append('debut', 0);
-	data.append('limit', 100);
+	data.append('action', 'cmdecreerunservey');
+	data.append('nomreseau', getdata('nomreseau'));
+	data.append('dateservey', getdata('dateservey'));
+	data.append('codepays', getdata('codepays'));
+	data.append('codeville', getdata('codeville'));
+	data.append('clientmobile', getdata('clientmobile'));
+	data.append('clientbtob', getdata('clientbtob'));
+	data.append('nomsite', getdata('nomsite'));
+	data.append('immeuble', getdata('immeuble'));
+	data.append('hauteur', getdata('hauteur'));
+	data.append('dalle', getdata('dalle'));
+	data.append('descrdalle', getdata('descrdalle'));
+	data.append('sourcelectrique', getdata('sourcelectrique'));
+	data.append('priseterre', getdata('priseterre'));
+	data.append('operateurs', getdata('operateurs'));
+	//data.append('codesoperateurs', getdata('codesoperateurs'));
+	data.append('latitude', getdata('latitude'));
+	data.append('longitude', getdata('longitude'));
+	data.append('adresse', getdata('adresse'));
+	data.append('descriptenviron', getdata('descriptenviron'));
 	envoyerequete(data);
 }
 
@@ -276,7 +307,7 @@ function editerunetransaction(pcodetrans)
 	var data = new FormData();
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
 	data.append('action', 'cmdeobtenirunetransaction');
-	data.append('codetrans', pcodetrans);
+	data.append('nomreseau', pcodetrans);
 	envoyerequete(data);
 }
 
@@ -350,6 +381,176 @@ function traiterevenform(e)
 		case 'initialiserunevuetype2':
 			initialiserunevue(e.target.dataset.nomvue);
 			setdata(e.target.dataset.libcode, e.target.dataset.valcode);
+			break;			
+			
+		case 'setcodepays':
+			setdata('codepays', e.target.value);
+			chargerlesvilles();
+			break;	
+			
+		case 'setcodeville':
+			setdata('codeville', e.target.value);
+			break;
+			
+		case 'setcodeoperateur':
+			var options = e.target.selectedOptions;
+			var codesoperateurs = "{";
+			for ( var i = 0; i < options.length; i++) 
+			{
+				if(i == 0)
+				{
+					codesoperateurs = codesoperateurs + options[i].value;
+				}
+				else
+				{
+					codesoperateurs = codesoperateurs + "," + options[i].value;
+				}
+			}
+			codesoperateurs = codesoperateurs + "}";
+			setdata('codesoperateurs', codesoperateurs);
+			break;
+			
+		case 'setnomreseau':
+			setdata('nomreseau', e.target.value);
+			break;
+			
+		case 'setnomsite':
+			setdata('nomsite', e.target.value);
+			break;
+			
+		case 'setdateservey':
+			setdata('dateservey', e.target.value);
+			break;
+			
+		case 'setimmeubleyes':
+			if(e.target.checked)
+			{
+				setdata('immeuble', 'yes');	
+			}
+			else
+			{
+				setdata('immeuble', 'no');	
+			}
+			break;
+			
+		case 'setimmeubleno':
+			if(e.target.checked)
+			{
+				setdata('immeuble', 'no');	
+			}
+			break;
+			
+		case 'sethauteur':
+			setdata('hauteur', e.target.value);
+			break;
+			
+		case 'setdalleyes':
+			if(e.target.checked)
+			{
+				setdata('dalle', 'yes');	
+			}
+			else
+			{
+				setdata('dalle', 'no');	
+			}
+			break;
+			
+		case 'setdalleno':
+			if(e.target.checked)
+			{
+				setdata('dalle', 'no');	
+			}
+			break;
+			
+		case 'setdescrdalle':
+			setdata('descrdalle', e.target.value);
+			break;
+			
+		case 'setsourcelectriqueyes':
+			if(e.target.checked)
+			{
+				setdata('sourcelectrique', 'yes');	
+			}
+			else
+			{
+				setdata('sourcelectrique', 'no');	
+			}
+			break;
+			
+		case 'setsourcelectriqueno':
+			if(e.target.checked)
+			{
+				setdata('sourcelectrique', 'no');	
+			}
+			break;
+			
+		case 'setpriseterreyes':
+			if(e.target.checked)
+			{
+				setdata('priseterre', 'yes');	
+			}
+			else
+			{
+				setdata('priseterre', 'no');	
+			}
+			break;
+			
+		case 'setpriseterreno':
+			if(e.target.checked)
+			{
+				setdata('priseterre', 'no');	
+			}
+			break;
+			
+		case 'setlongitude':
+			setdata('longitude', e.target.value);
+			break;
+			
+		case 'setlatitude':
+			setdata('latitude', e.target.value);
+			break;
+			
+		case 'setadresse':
+			setdata('adresse', e.target.value);
+			break;
+			
+		case 'setoperateuryes':
+			if(e.target.checked)
+			{
+				setdata('operateurs', 'yes');
+				chargerlesoperateurs();	
+			}
+			else
+			{
+				setdata('operateurs', 'no');	
+			}
+			break;
+			
+		case 'setoperateurno':
+			if(e.target.checked)
+			{
+				setdata('operateurs', 'no');	
+			}
+			break;
+			
+		case 'setclientmobile':
+			setdata('clientmobile', e.target.value);
+			break;
+			
+		case 'setclientbtob':
+			setdata('clientbtob', e.target.value);
+			break;
+			
+		case 'setdescriptenviron':
+			setdata('descriptenviron', e.target.value);
+			break;
+			
+		case 'annulercreationservey':
+			annulercreationservey(e.target.dataset.nomvue);
+			break;
+			
+		case 'creationservey':
+			creationservey();
 			break;
 	}	
 }

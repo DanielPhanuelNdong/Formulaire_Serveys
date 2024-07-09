@@ -318,9 +318,7 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 					}
 					break;	
 
-			    case 'modificationunservey':
-				case 'creationservey':
-
+			    case 'creationservey': 
 					switch(nomcompo)
 					{
 						case 'sidebar':
@@ -367,6 +365,64 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 										break;
 								}
 							}
+							
+							document.getElementById('nomreseau').setAttribute("data-action", 'setnomreseau');
+							document.getElementById('nomreseau').addEventListener("change", traiterevenform);
+							
+							document.getElementById('nomsite').setAttribute("data-action", 'setnomsite');
+							document.getElementById('nomsite').addEventListener("change", traiterevenform);
+							
+							document.getElementById('dateservey').setAttribute("data-action", 'setdateservey');
+							document.getElementById('dateservey').addEventListener("change", traiterevenform);
+							
+							document.getElementById('oui1').setAttribute("data-action", 'setimmeubleyes');
+							document.getElementById('oui1').addEventListener("change", traiterevenform);							
+							document.getElementById('non1').setAttribute("data-action", 'setimmeubleno');
+							document.getElementById('non1').addEventListener("change", traiterevenform);
+							
+							document.getElementById('hauteurimmeuble').setAttribute("data-action", 'sethauteur');
+							document.getElementById('hauteurimmeuble').addEventListener("change", traiterevenform);
+							
+							document.getElementById('oui2').setAttribute("data-action", 'setdalleyes');
+							document.getElementById('oui2').addEventListener("change", traiterevenform);							
+							document.getElementById('non2').setAttribute("data-action", 'setdalleno');
+							document.getElementById('non2').addEventListener("change", traiterevenform);
+							
+							document.getElementById('descrdalle').setAttribute("data-action", 'setdescrdalle');
+							document.getElementById('descrdalle').addEventListener("change", traiterevenform);
+							
+							document.getElementById('oui3').setAttribute("data-action", 'setsourcelectriqueyes');
+							document.getElementById('oui3').addEventListener("change", traiterevenform);							
+							document.getElementById('non3').setAttribute("data-action", 'setsourcelectriqueno');
+							document.getElementById('non3').addEventListener("change", traiterevenform);
+							
+							document.getElementById('oui5').setAttribute("data-action", 'setpriseterreyes');
+							document.getElementById('oui5').addEventListener("change", traiterevenform);							
+							document.getElementById('non5').setAttribute("data-action", 'setpriseterreno');
+							document.getElementById('non5').addEventListener("change", traiterevenform);
+							
+							document.getElementById('longitude').setAttribute("data-action", 'setlongitude');
+							document.getElementById('longitude').addEventListener("change", traiterevenform);
+							
+							document.getElementById('latitude').setAttribute("data-action", 'setlatitude');
+							document.getElementById('latitude').addEventListener("change", traiterevenform);
+							
+							document.getElementById('adresse').setAttribute("data-action", 'setadresse');
+							document.getElementById('adresse').addEventListener("change", traiterevenform);
+							
+							document.getElementById('oui4').setAttribute("data-action", 'setoperateuryes');
+							document.getElementById('oui4').addEventListener("change", traiterevenform);							
+							document.getElementById('non4').setAttribute("data-action", 'setoperateurno');
+							document.getElementById('non4').addEventListener("change", traiterevenform);
+							
+							document.getElementById('clientmobile').setAttribute("data-action", 'setclientmobile');
+							document.getElementById('clientmobile').addEventListener("change", traiterevenform);
+							
+							document.getElementById('clientbtob').setAttribute("data-action", 'setclientbtob');
+							document.getElementById('clientbtob').addEventListener("change", traiterevenform);
+							
+							document.getElementById('descriptenviron').setAttribute("data-action", 'setdescriptenviron');
+							document.getElementById('descriptenviron').addEventListener("change", traiterevenform);
 							break;
 
 						case 'bodycreatservey1':
@@ -490,7 +546,7 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 										
 									case 'btnannulercreatservey':
 										document.getElementById('annuler').innerText = conten.lib;
-										document.getElementById('annuler').setAttribute("data-action", 'initialiserunevue');
+										document.getElementById('annuler').setAttribute("data-action", 'annulercreationservey');
 										document.getElementById('annuler').setAttribute("data-nomvue", 'editionserveys');
 										document.getElementById('annuler').addEventListener("click", traiterevenform);
 										break;
@@ -532,8 +588,7 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 								{
 									case 'btnvalidconfirmcreatservey':
 										document.getElementById('valid').innerText = conten.lib;
-										document.getElementById('valid').setAttribute("data-action", 'initialiserunevue');
-										document.getElementById('valid').setAttribute("data-nomvue", 'editionserveys');
+										document.getElementById('valid').setAttribute("data-action", 'creationservey');
 										document.getElementById('valid').addEventListener("click", traiterevenform);
 										break;
 										
@@ -622,206 +677,171 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 					}
 					break;	
 					
-				// case 'modificationunservey':
+				case 'modificationunservey':
 	
-				// switch(nomcompo)
-				// {
-				// 	case 'sidebar':
-				// 		for (const conten of contenus)
-				// 		{
-				// 			switch(conten.nomconten)
-				// 			{
-				// 				case 'lbdeconnexion':
-				// 					document.getElementById(conten.nomconten).innerText = conten.lib;
-				// 					document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
-				// 					document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-				// 					break;
-									
-				// 				case 'lbgestionserveys':
-				// 					document.getElementById(conten.nomconten).innerText = conten.lib;
-				// 					document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
-				// 					document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionserveys');
-				// 					document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-				// 					break;
-				// 			}
-				// 		}
-				// 		break;
+	                switch(nomcompo)
+					 {
+							
+						case 'sidebar':
+							for (const conten of contenus)
+							{
+								switch(conten.nomconten)
+					            {
+									case 'lbdeconnexion':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										break;
+										
+									case 'lbgestionserveys':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
+										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionserveys');
+										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										break;
+								}
+							}
+							break;
+							
+						case 'gestionbar2':	
+							for (const conten of contenus) 
+							{
+								switch(conten.nomconten)
+					            {
+									case 'lbgestunservey':
+									case 'lbeditunservey':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+								}
+							}
+							break;
 
-				// 	case 'entetecreatservey':
-				// 		for (const conten of contenus)
-				// 		{
-				// 			switch(conten.nomconten)
-				// 			{
-				// 				case 'placenomsite':
-				// 					document.getElementById('nomsite').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
-				// 				case 'placenomreseau':
-				// 					document.getElementById('nomreseau').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
-				// 				case 'lbnomsite':
-				// 				case 'lbpays':
-				// 				case 'lbville':
-				// 				case 'lbdate':
-				// 				case 'lbnomreseau':
-				// 				case 'lbinfoservey':
-				// 					document.getElementById(conten.nomconten).innerText = conten.lib;
-				// 					break;
-				// 			}
-				// 		}
-				// 		break;
+						case 'bodyservey1':	
+							for (const conten of contenus) 
+							{
+								switch(conten.nomconten)
+					            {
+									case 'lbcarateristiques':
+									case 'lbimmeuble':
+									case 'lbimbleoui':
+									case 'lbimblenon':
+									case 'lbhauteur':
+									case 'lbdalle':
+									case 'lbdaloui':
+									case 'lbdalnon':
+									case 'lbetatdal':
+									case 'lbsourcelect':
+									case 'lbsourcelectoui':
+									case 'lbsourcelectnon':
+									case 'lbpriseterre':
+									case 'lbpriseterreoui':
+									case 'lbpriseterrenon':
+									case 'lbcoordgps':
+									case 'lboperateurexist':
+									case 'lboperateurexistoui':
+									case 'lboperateurexistnon':
+									case 'lboperateur':
+									case 'lbetatdal':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+								}
+							}
+							break;
+							
+						case 'enteteservey':
+							for (const conten of contenus) 
+							{
+								switch(conten.nomconten)
+					            {
+									case 'lbnomsite':
+									case 'lbpays':
+									case 'lbville':
+									case 'lbdate':
+									case 'lbnomreseau':
+									case 'lbinfoservey':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+								}
+							}
+							break;
+							
+						case 'bodyservey2':
+							for (const conten of contenus) 
+							{
+								switch(conten.nomconten)
+					            {
+									case 'lbclientcible':
+									case 'lbmobile':
+									case 'lbbtob':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+								}
+							}
+							break;
+							
+						case 'bodyservey3':
+						for (const conten of contenus)
+							{
+								switch(conten.nomconten)
+								{
+									case 'lbscanperiphwifi':
+										document.getElementById('lbscanperiphwifi').innerText = conten.lib;
+										break;
+										
+									case 'btnwifi':
+										document.getElementById('btnwifi').innerText = conten.lib;
+										//document.getElementById('annuler').setAttribute("data-action", 'initialiserunevue');
+										//document.getElementById('annuler').setAttribute("data-nomvue", 'editionserveys');
+										//document.getElementById('annuler').addEventListener("click", traiterevenform);
+										break;
+								}
+							}
+							break;
+							
+						case 'bodyservey4':
+							for (const conten of contenus)
+							{
+								switch(conten.nomconten)
+								{
+									case 'lbphotos':
+										document.getElementById('lbphotos').innerText = conten.lib; 
+										break;
 
-				// 	case 'bodycreatservey1':
-				// 		for (const conten of contenus)
-				// 		{
-				// 			switch(conten.nomconten)
-				// 			{
-				// 				case 'placehauteur':
-				// 					document.getElementById('hauteurimmeuble').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
-				// 				case 'placetatdal':
-				// 					document.getElementById('descrdalle').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
-				// 				case 'placelongitude':
-				// 					document.getElementById('longitude').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
-				// 				case 'placelatitude':
-				// 					document.getElementById('latitude').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
-				// 				case 'placeadresse':
-				// 					document.getElementById('adresse').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
-				// 				case 'lbcarateristiques':
-				// 				case 'lbimmeuble':
-				// 				case 'lbimbleoui':
-				// 				case 'lbimblenon':
-				// 				case 'lbhauteur':
-				// 				case 'lbdalle':
-				// 				case 'lbdaloui':
-				// 				case 'lbdalnon':
-				// 				case 'lbetatdal':
-				// 				case 'lbsourcelect':
-				// 				case 'lbsourcelectoui':
-				// 				case 'lbsourcelectnon':
-				// 				case 'lbpriseterre':
-				// 				case 'lbpriseterreoui':
-				// 				case 'lbpriseterrenon':
-				// 				case 'lbcoordgps':
-				// 				case 'lboperateurexist':
-				// 				case 'lboperateurexistoui':
-				// 				case 'lboperateurexistnon':
-				// 				case 'lboperateur':
-				// 				case 'lbetatdal':
-				// 					document.getElementById(conten.nomconten).innerText = conten.lib;
-				// 					break;
-				// 			}
-				// 		}
-				// 		break;
-
-				// 	case 'bodycreatservey2':
-				// 		for (const conten of contenus)
-				// 		{
-				// 			switch(conten.nomconten)
-				// 			{
-				// 				case 'placembile':
-				// 					document.getElementById('clientmobile').setAttribute("placeholder", conten.lib);
-				// 					break;
-
-				// 				case 'placebtob':
-				// 					document.getElementById('clientbtob').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
-				// 				case 'lbclientcible':
-				// 				case 'lbmobile':
-				// 				case 'lbbtob':
-				// 					document.getElementById(conten.nomconten).innerText = conten.lib;
-				// 					break;
-				// 			}
-				// 		}
-				// 		break;
-
-				// 	case 'bodyservey4':
-				// 		for (const conten of contenus)
-				// 		{
-				// 			switch(conten.nomconten)
-				// 			{
-				// 				case 'lbphotos':
-				// 					document.getElementById('lbphotos').innerText = conten.lib; 
-				// 					break;
-
-				// 				case 'btnphotos':
-				// 					document.getElementById('btnphotos').innerText = conten.lib;
-				// 					break;
-									
-																	
-				// 			}
-				// 		}
-				// 		break;
-
-				// 	case 'bodycreatservey4':
-				// 		for (const conten of contenus)
-				// 		{
-				// 			switch(conten.nomconten)
-				// 			{
-				// 				case 'placedescriptenviron':
-				// 					document.getElementById('descriptenviron').innerText = "";
-				// 					document.getElementById('descriptenviron').setAttribute("placeholder", conten.lib);
-				// 					break;
-									
+									case 'btnphotos':
+										document.getElementById('btnphotos').innerText = conten.lib;
+										break;
+										
 																		
-				// 			}
-				// 		}
-				// 		break;
-
-				// 	case 'footercreatservey':
-				// 		for (const conten of contenus)
-				// 		{
-				// 			switch(conten.nomconten)
-				// 			{
-				// 				case 'btnvalidermodifservey':
-				// 					document.getElementById('valider').innerText = conten.lib;
-				// 					document.getElementById('valider').setAttribute("data-action", 'initialiserunevue');
-				// 					document.getElementById('valider').setAttribute("data-nomvue", 'confirmationmodificationservey');
-				// 					document.getElementById('valider').addEventListener("click", traiterevenform);
-				// 					break;
-									
-				// 				case 'btnannulermodifservey':
-				// 					document.getElementById('annuler').innerText = conten.lib;
-				// 					document.getElementById('annuler').setAttribute("data-action", 'initialiserunevue');
-				// 					document.getElementById('annuler').setAttribute("data-nomvue", 'editionservey');
-				// 					document.getElementById('annuler').addEventListener("click", traiterevenform);
-				// 					break;
-				// 			}
-				// 		}
-				// 		break;
-						
-				// 	case 'bodyservey3':
-				// 	for (const conten of contenus)
-				// 		{
-				// 			switch(conten.nomconten)
-				// 			{
-				// 				case 'lbscanperiphwifi':
-				// 					document.getElementById('lbscanperiphwifi').innerText = conten.lib;
-				// 					break;
-									
-				// 				case 'btnwifi':
-				// 					document.getElementById('btnwifi').innerText = conten.lib;
-				// 					//document.getElementById('annuler').setAttribute("data-action", 'initialiserunevue');
-				// 					//document.getElementById('annuler').setAttribute("data-nomvue", 'editionserveys');
-				// 					//document.getElementById('annuler').addEventListener("click", traiterevenform);
-				// 					break;
-				// 			}
-				// 		}
-				// 		break;
+								}
+							}
+							break;
+							
+						case 'footermodifservey':
+							for (const conten of contenus)
+							{
+								
+								switch(conten.nomconten)
+								{
+									case 'btnvalidermodifservey':
+										document.getElementById('valider').innerText = conten.lib;
+										document.getElementById('valid').setAttribute("data-action", 'initialiserunevue');
+										//document.getElementById('valid').setAttribute("data-nomvue", 'editionserveys');
+										//document.getElementById('valid').addEventListener("click", traiterevenform);
+										break;
+										
+									case 'btnannulermodifservey':
+										document.getElementById('annuler').innerText = conten.lib;
+										document.getElementById('annuler').setAttribute("data-action", 'initialiserunevue');
+										document.getElementById('annuler').setAttribute("data-nomvue", 'editionservey');
+										document.getElementById('annuler').addEventListener("click", traiterevenform);
+										break;
+								}
+							}
+							break;
 					
-				// }
-				// break;
+					}
+					break;
+					
 				case 'confirmationmodificationservey':
 	
 	                switch(nomcompo)
@@ -890,16 +910,62 @@ function mettreajourselectlist(selectid, data)
 	  select.remove(i);
 	}
 	var opt = null;
-	for (conten of data) 
-	{ 
-        opt = document.createElement('option');
-        opt.value = conten.codesptrav;
-        opt.textContent = conten.nomprofil;
-        select.appendChild(opt);
-    }
-	select.selectedIndex = 0;
-	select.setAttribute("data-action", 'setcodesptrav');
-	select.addEventListener("change", traiterevenform);
+	
+	switch(selectid)
+    {
+		case 'profils':
+			for (conten of data) 
+			{ 
+		        opt = document.createElement('option');
+		        opt.value = conten.codesptrav;
+		        opt.textContent = conten.nomprofil;
+		        select.appendChild(opt);
+		    }
+			select.selectedIndex = 0;
+			select.setAttribute("data-action", 'setcodesptrav');
+			select.addEventListener("change", traiterevenform);
+			break;
+			
+		case 'pays':
+			for (conten of data) 
+			{ 
+		        opt = document.createElement('option');
+		        opt.value = conten.code;
+		        opt.textContent = conten.lib;
+		        select.appendChild(opt);
+		    }
+			select.selectedIndex = 0;
+			select.setAttribute("data-action", 'setcodepays');
+			select.addEventListener("change", traiterevenform);
+			break;
+			
+		case 'ville':
+			for (conten of data) 
+			{ 
+		        opt = document.createElement('option');
+		        opt.value = conten.code;
+		        opt.textContent = conten.lib;
+		        select.appendChild(opt);
+		    }
+			select.selectedIndex = 0;
+			select.setAttribute("data-action", 'setcodeville');
+			select.addEventListener("change", traiterevenform);
+			break;
+			
+		case 'lstoperateur':
+			for (conten of data) 
+			{ 
+		        opt = document.createElement('option');
+		        opt.value = conten.code;
+		        opt.textContent = conten.lib;
+		        select.appendChild(opt);
+		    }
+			select.selectedIndex = 0;
+			select.setAttribute("data-action", 'setcodeoperateur');
+			select.addEventListener("change", traiterevenform);
+			break;
+	}
+	
 }
 
 function mettreajourprofilutilis(connexion)
