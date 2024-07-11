@@ -244,7 +244,7 @@ function buildoperatinloader()
     var contentviewloader = document.getElementById('loader');
 
     var divloadercontent = document.createElement("div");
-    divloadercontent.setAttribute("style", "background-color: rgba(254, 254, 254, 0.8); position: fixed; left: 0; right: 0; top: 0; bottom: 0; font-weight: 400; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1099;");
+    divloadercontent.setAttribute("style", "background-color: rgba(254, 254, 254, 0.8); position: fixed; left: 0; right: 0; top: 0; bottom: 0; font-weight: 400; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 999;");
     divloadercontent.setAttribute("id", "loaderblock");
     var divwifiloader = document.createElement("div");
     divwifiloader.setAttribute("class", "lds-ripple");

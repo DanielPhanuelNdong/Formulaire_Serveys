@@ -12,31 +12,6 @@ body{
     overflow-x: hidden;
 }
 
-/* Le loader .........................................*/
-/* #loader{
-    
-} */
-#loaderblock::after{
-    content: "";
-    /* transform: translate(-50%, -50%); */
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 20px solid rgba(237, 245, 251, 0.8);
-    border-top: 20px solid #ec910a;
-    animation: spin 3s ease infinite;
-}
-
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 /* page numero 1*/
 .container{
     height: 520px;
