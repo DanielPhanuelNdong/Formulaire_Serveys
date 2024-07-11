@@ -56,34 +56,26 @@ function traiterevensrvapp(e)
 							{
 								case 'succescmdeobtenirleserveys':
 									mettreajourtable('serveys', resp.body.data.serveys);
-									supprimercontainer('loaderblock');
+									//supprimercontainer('loaderblock');
 									break;
 									
 								case 'succescmdeobtenirlistepays':
 									mettreajourselectlist('pays', resp.body.data.listepays);
-									supprimercontainer('loaderblock');
+									//supprimercontainer('loaderblock');
 									break;
 									
 								case 'succescmdeobtenirlisteville':
 								 	mettreajourselectlist('ville', resp.body.data.listeville);
-								 	supprimercontainer('loaderblock');
+								// 	//supprimercontainer('loaderblock');
 								break;
 									
 								case 'succescmdeobtenirlisteoperateur':
 								 	mettreajourselectlist('lstoperateur', resp.body.data.listeoperateur);
-								 	supprimercontainer('loaderblock');
+								// 	//supprimercontainer('loaderblock');
 								break;
 									
 								case 'succescmdecreerunservey':
 								 	initialiserunevue("editionserveys");
-								 	supprimercontainer('loaderblock');
-								break;
-									
-								case 'succescmdeobtenirunservey':
-									mettreajourselectlist('pays', resp.body.data.listepays);
-									mettreajourselectlist('ville', resp.body.data.listeville);
-									mettreajourselectlist('lstoperateur', resp.body.data.listeoperateur);
-								 	remplirformulaire('formservey', resp.body.data.servey);
 								// 	//supprimercontainer('loaderblock');
 								break;
 							}
@@ -106,9 +98,8 @@ function traiterevensrvapp(e)
 								case 'echecmdeobtenirlisteville':
 								case 'echecmdeobtenirlisteoperateur':
 								case 'echecmdecreerunservey':
-								case 'echecmdeobtenirunservey':
 									rendermessage(resp.body.data.msg, 0);
-									supprimercontainer('loaderblock');
+									//supprimercontainer('loaderblock');
 									break;
 							}
 					}
@@ -117,7 +108,7 @@ function traiterevensrvapp(e)
 			catch(err)
 			{
 				rendermessage(err, 0);
-				supprimercontainer('loaderblock');
+				//supprimercontainer('loaderblock');
 			}
             break;
     }
@@ -159,7 +150,7 @@ function ouvrir(pnomesptrav)
 
 function initialiserunevue(pnomvue)
 {	
-	buildoperatinloader();
+	//buildoperatinloader();
 	var data = new FormData();
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
 	data.append('action', "initialiserunevue");
@@ -196,10 +187,6 @@ function initialisercomposant()
 				editerleserveys();
 				break;	
 				
-			case 'editionservey':	
-				editerleservey();
-				break;
-				
 			case 'creationservey':	
 				chargerlespays();
 				break;
@@ -209,7 +196,7 @@ function initialisercomposant()
 
 function verifierconnexion(pnomesptrav, pcodeconn)
 {
-	buildoperatinloader();
+	//buildoperatinloader();
 	var data = new FormData();
 	data.append('action', "verifierlaconnexion");
 	data.append('nomesptrav', pnomesptrav);
@@ -219,7 +206,7 @@ function verifierconnexion(pnomesptrav, pcodeconn)
 
 function sedeconnecter()
 {
-	buildoperatinloader();
+	//buildoperatinloader();
 	var data = new FormData();
 	data.append('action', "sedeconnecter");
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
@@ -235,15 +222,6 @@ function editerleserveys()
 	data.append('critere', "");
 	data.append('debut', 0);
 	data.append('limit', 100);
-	envoyerequete(data);
-}
-
-function editerleservey()
-{
-	var data = new FormData();
-	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', 'cmdeobtenirunservey');
-	data.append('codeservey', getdata('codeservey'));
 	envoyerequete(data);
 }
 

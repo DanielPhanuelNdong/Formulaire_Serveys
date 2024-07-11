@@ -178,8 +178,11 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 								switch(conten.nomconten)
 					            {
 									case 'lbgestunservey':
+										document.getElementById('lbgestdeserveys').innerText = conten.lib;
+										break;
+									
 									case 'lbeditunservey':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById('lbeditserveys').innerText = conten.lib;
 										break;
 								}
 							}
@@ -588,7 +591,8 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 								{
 									case 'btnvalidconfirmcreatservey':
 										document.getElementById('valid').innerText = conten.lib;
-										document.getElementById('valid').setAttribute("data-action", 'creationservey');
+										document.getElementById('annul').setAttribute("data-action", 'initialiserunevue');
+										document.getElementById('valid').setAttribute("data-nomvue", 'editionserveys');
 										document.getElementById('valid').addEventListener("click", traiterevenform);
 										break;
 										
@@ -709,8 +713,11 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 								switch(conten.nomconten)
 					            {
 									case 'lbgestunservey':
+										document.getElementById('lbgestdeserveys').innerText = conten.lib;
+										break;
+									
 									case 'lbeditunservey':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById('lbeditserveys').innerText = conten.lib;
 										break;
 								}
 							}
@@ -977,66 +984,66 @@ function remplirformulaire(formid, data)
 {
 	switch(formid)
     {
-		case 'editiontransaction':
-       		for (const item in data) 
-	       	{
-	       		switch(item)
-	            {
-					case 'codetrans':
-					case 'nomcommis':
-					case 'datetrans':
-					case 'descrtrans':
-					case 'senstrans':
-					case 'montantrans':
-					case 'tauxcommis':
-					case 'fraistrans':
-					case 'totaltrans':
-					case 'statutrans':
-					case 'nomsutilistrans':
-					case 'intitulewalletrans':
-					case 'soldewalletrans':
-					case 'nouveausoldetrans':
-					case 'nomsmomo':
-					case 'numtelmomo':
-					case 'opermomo':
-					case 'paysmomo':
-					case 'nomsutilispart':
-					case 'intitulewalletpart':
-						document.getElementById(item).value = data[item];
-						break;
-				}			  
+		case 'formservey':
+       		document.getElementById('nomreseau').value = data.nomreseau;
+			
+			document.getElementById('nomsite').value = data.nomsite;
+			
+			document.getElementById('dateservey').value = data.dateservey;
+			
+			document.getElementById('pays').value = data.codepays;			
+			document.getElementById('ville').value = data.codeville;
+			
+			if(data.immeuble == 't')
+			{
+				document.getElementById('oui1').checked = true;
+				document.getElementById('non1').checked = false;
+				document.getElementById('hauteur').classList.remove('disp');
+				document.getElementById('dalles').classList.remove('disp');
+			
+				document.getElementById('hauteurimmeuble').value = data.hauteur;
+				if(data.dalle == 't')
+				{
+					document.getElementById('oui2').checked = true;
+					document.getElementById('non2').checked = false;
+					document.getElementById('etat_dalles').classList.remove('disp');
+					
+					document.getElementById('descrdalle').value = data.descrdalle;
+				}	
+			}	
+			
+			if(data.sourcelectrique == 't')
+			{
+				document.getElementById('oui3').checked = true;
+				document.getElementById('non3').checked = false;	
 			}
-	        break;
-	        
-        case 'editionwallet':
-        	
-       		for (const item in data) 
-	       	{
-	       		switch(item)
-	            {
-					case 'codewallet':
-						const transwalletBtn = document.querySelector("#editranswallet");
-						transwalletBtn.setAttribute("data-action", 'initialiserunevuetype2');
-						transwalletBtn.setAttribute("data-nomvue", 'editiontransactionswallet');
-						transwalletBtn.setAttribute("data-libcode", 'codewallet');
-						transwalletBtn.setAttribute("data-valcode", data[item]);
-						transwalletBtn.addEventListener("click", traiterevenform);
-						transwalletBtn.addEventListener("dblclick", traiterevenform);
-						document.getElementById(item).value = data[item];
-						break;
-					case 'intitulewallet':
-					case 'soldewallet':
-					case 'statutwallet':
-					case 'codeclientwallet':
-					case 'typeutiliswallet':
-					case 'nomsutiliswallet':
-					case 'numtelutiliswallet':
-					case 'emailutiliswallet':
-					case 'statutcomptewallet':
-						document.getElementById(item).value = data[item];
-						break;
-				}			  
+			
+			if(data.priseterre == 't')
+			{
+				document.getElementById('oui5').checked = true;
+				document.getElementById('non5').checked = false;
 			}
+			
+			document.getElementById('longitude').value = data.longitude;
+			
+			document.getElementById('latitude').value = data.latitude;
+			
+			document.getElementById('adresse').value = data.adresse;
+			
+			if(data.operateurs == 't')
+			{
+				document.getElementById('oui4').checked = true;
+				document.getElementById('non4').checked = false;
+				
+				document.getElementById('operateur').classList.remove('disp');
+			}
+			
+			document.getElementById('clientmobile').value = data.clientmobile;
+			
+			document.getElementById('clientbtob').value = data.clientbtob;
+			
+			document.getElementById('descriptenviron').value = data.descrenviron;
+			
 	        break;
 	}
 }
@@ -1096,361 +1103,6 @@ function mettreajourtable(tableid, data)
 		        table.removeChild(anctbody);
 		    }
 	    	table.appendChild(tbody);
-			break;
-			
-		case 'administrateurs':
-			var table = document.getElementById(tableid);
-			var tbody = document.createElement("tbody");
-			var j = 1;
-			data.forEach(item =>
-			{
-		        var tr = document.createElement("tr");
-		        tr.setAttribute('id', item.code);
-		        var td = document.createElement("td");
-		        td.setAttribute('class', 'text-center');
-		        td.innerText = j;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.noms;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.numtel;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.email;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        if(item.statut == '1')
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-check-circle');
-		        }
-		        else
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-lock');
-		        }
-		        td.appendChild(i);
-		        tr.appendChild(td);
-		        		        
-		        tbody.appendChild(tr);
-		        j = j + 1;
-		    });						
-			var anctbody = document.querySelector("table#" + tableid + ">tbody");
-			if (anctbody !== null) 
-		    {
-		        table.removeChild(anctbody);
-		    }
-	    	table.appendChild(tbody);
-			break;	
-			
-		case 'wallets':
-			var table = document.getElementById(tableid);
-			var tbody = document.createElement("tbody");
-			var j = 1;
-			data.forEach(item => 
-			{
-		        var tr = document.createElement("tr");	        
-				tr.setAttribute("data-action", 'initialiserunevuetype2');
-				tr.setAttribute("data-nomvue", 'editionwalletedit');
-				tr.setAttribute("data-libcode", 'codewallet');
-				tr.setAttribute("data-valcode", item.code);
-				tr.addEventListener("click", traitereventable);
-				tr.addEventListener("dblclick", traitereventable);
-		        var td = document.createElement("td");
-		        td.setAttribute('class', 'text-center');
-		        td.innerText = j;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.intitule;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.solde;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.noms;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.numtel;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.email;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        if(item.statut == '1')
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-check-circle');
-		        }
-		        else
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-lock');
-		        }
-		        td.appendChild(i);
-		        tr.appendChild(td);
-		        		        
-		        tbody.appendChild(tr);
-		        j = j + 1;
-		    });						
-			var anctbody = document.querySelector("table#" + tableid + ">tbody");
-			if (anctbody !== null) 
-		    {
-		        table.removeChild(anctbody);
-		    }
-	    	table.appendChild(tbody);
-			break;
-			
-		case 'clients':
-			var table = document.getElementById(tableid);
-			var tbody = document.createElement("tbody");
-			var j = 1;
-			data.forEach(item => 
-			{
-		        var tr = document.createElement("tr");
-		        tr.setAttribute('id', item.code);
-		        var td = document.createElement("td");
-		        td.setAttribute('class', 'text-center');
-		        td.innerText = j;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.noms;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.numtel;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.email;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        if(item.statut == '1')
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-check-circle');
-		        }
-		        else
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-lock');
-		        }
-		        td.appendChild(i);
-		        tr.appendChild(td);
-		        		        
-		        tbody.appendChild(tr);
-		        j = j + 1;
-		    });						
-			var anctbody = document.querySelector("table#" + tableid + ">tbody");
-			if (anctbody !== null) 
-		    {
-		        table.removeChild(anctbody);
-		    }
-	    	table.appendChild(tbody);
-			break;
-			
-		case 'agents':
-			var table = document.getElementById(tableid);
-			var tbody = document.createElement("tbody");
-			var j = 1;
-			data.forEach(item => 
-			{
-		        var tr = document.createElement("tr");
-		        tr.setAttribute('id', item.code);
-		        var td = document.createElement("td");
-		        td.setAttribute('class', 'text-center');
-		        td.innerText = j;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.noms;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.numtel;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.email;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        if(item.statut == '1')
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-check-circle');
-		        }
-		        else
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-lock');
-		        }
-		        td.appendChild(i);
-		        tr.appendChild(td);
-		        		        
-		        tbody.appendChild(tr);
-		        j = j + 1;
-		    });						
-			var anctbody = document.querySelector("table#" + tableid + ">tbody");
-			if (anctbody !== null) 
-		    {
-		        table.removeChild(anctbody);
-		    }
-	    	table.appendChild(tbody);
-			break;
-			
-		case 'transactions':
-			var table = document.getElementById(tableid);
-			var tbody = document.createElement("tbody");
-			var j = 1;
-			data.forEach(item => 
-			{
-		        var tr = document.createElement("tr");	        
-				tr.setAttribute("data-action", 'initialiserunevuetype2');
-				tr.setAttribute("data-nomvue", 'editiontransactionedit');
-				tr.setAttribute("data-libcode", 'codetrans');
-				tr.setAttribute("data-valcode", item.code);
-				tr.addEventListener("click", traitereventable);
-				tr.addEventListener("dblclick", traitereventable);
-		        var td = document.createElement("td");
-		        td.setAttribute('class', 'text-center');
-		        td.innerText = j;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.type;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.date;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.montant;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.taux;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.sens;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.intitule;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.noms;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        if(item.statut == '1')
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-check-circle');
-		        }
-		        else
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-lock');
-		        }
-		        td.appendChild(i);
-		        tr.appendChild(td);
-		        		        
-		        tbody.appendChild(tr);
-		        j = j + 1;
-		    });						
-			var anctbody = document.querySelector("table#" + tableid + ">tbody");
-			if (anctbody !== null) 
-		    {
-		        table.removeChild(anctbody);
-		    }
-	    	table.appendChild(tbody);	    	
-			break;
-			
-		case 'transactionswallet':
-			var table = document.getElementById(tableid);
-			var tbody = document.createElement("tbody");
-			var j = 1;
-			data.forEach(item => 
-			{
-		        var tr = document.createElement("tr");	        
-				tr.setAttribute("data-action", 'initialiserunevuetype2');
-				tr.setAttribute("data-nomvue", 'editiontransactionedit');
-				tr.setAttribute("data-libcode", 'codetrans');
-				tr.setAttribute("data-valcode", item.code);
-				tr.addEventListener("click", traitereventable);
-				tr.addEventListener("dblclick", traitereventable);
-		        var td = document.createElement("td");
-		        td.setAttribute('class', 'text-center');
-		        td.innerText = j;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.type;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.date;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.montant;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.taux;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.sens;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.intitule;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        td.innerText = item.noms;
-		        tr.appendChild(td);
-		        
-		        td = document.createElement("td");
-		        if(item.statut == '1')
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-check-circle');
-		        }
-		        else
-		        {
-		        	var i = document.createElement("i");
-		        	i.setAttribute('class', 'icon-feather-lock');
-		        }
-		        td.appendChild(i);
-		        tr.appendChild(td);
-		        		        
-		        tbody.appendChild(tr);
-		        j = j + 1;
-		    });						
-			var anctbody = document.querySelector("table#" + tableid + ">tbody");
-			if (anctbody !== null) 
-		    {
-		        table.removeChild(anctbody);
-		    }
-	    	table.appendChild(tbody);	    	
 			break;
 	}
 }

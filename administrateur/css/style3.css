@@ -1,0 +1,1098 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+html {
+    font-size: 85%;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding-right: 50px;
+    width: 100%;
+    height: 60px;
+    box-shadow: 5px 5px 10px #e3e3e4;
+    position: fixed;
+    background-color: #ffffff;
+}
+.monMenu{
+    margin-left: 20px;
+    
+}
+.monMenu img{
+    display: none;
+    height: 40px;
+    width: 40px;
+}
+.fermer_menu{
+    display: none;
+}
+.fermer_menu img{
+    display: none;
+    height: 40px;
+    width: 40px;
+}
+
+header nav {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-right: 50px;
+}
+
+nav img {
+    height: 60px;
+    width: 60px;
+}
+
+nav h1 {
+    font-size: 20px;
+    color: #171d34;
+}
+
+.section1 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divh3, .col1 div div {
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* .divh3:hover, .col1 div div:hover {
+    background-color: rgb(255, 255, 255);
+} */
+.section1 h3 {
+    padding: 1.1vw;
+    transition: .5s;
+}
+
+.section1 h3:hover {
+    color: #4f5e9b;
+    transform: translate(15px, 0);
+}
+
+.col1 {
+    width: 18%;
+    height: 100vh;
+    background-color: #171d34;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    transition: .5s ease;
+    /* transform: translateX(-100px); */
+    
+}
+
+/* modal ...................................... */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    transition: 1s all ease-in-out;
+}
+
+.contenu-modal {
+    width: 350px;
+    height: 200px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+    transition: 1s all ease-in-out;
+}
+
+.body-modal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+}
+
+.body-modal p {
+    text-align: center;
+    margin-inline: 15px;
+    margin-top: 50px;
+    font-size: 20px;
+    color: #171d34;
+    font-weight: bolder;
+
+}
+
+.footer-modal {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.close-modal {
+    margin-right: 10px;
+    padding-inline: 10px;
+    padding-block: 10px;
+    background-color: #ffffff;
+    border: #ec910a 2px solid;
+    color: #29325b;
+    font-size: 12px;
+    font-weight: bolder;
+    transition: 1s all ease-in-out;
+}
+
+.close-modal:hover {
+    background-color: #f39f22;
+    color: #ffffff;
+}
+
+.valider-modal {
+    margin-left: 10px;
+    padding-inline: 12px;
+    padding-block: 12px;
+    background-color: #ec910a;
+    border: none;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bolder;
+    transition: 1s all ease-in-out;
+}
+
+.valider-modal:hover {
+    background-color: #171d34;
+}
+
+.col1 .logsow {
+    margin-top: 5px;
+    width: 82%;
+}
+
+.col1 div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.col1 h1 {
+    align-self: center;
+    font-size: 35px;
+}
+
+.col2 {
+    width: 80%;
+    padding-top: 70px;
+    padding-left: 243px;
+}
+
+.div1 {
+    height: 70px;
+    box-shadow: 5px 5px 10px #e3e3e4;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    color: #171d34;
+    padding-left: 20px;
+    transition: .5s;
+}
+
+.div111 {
+    display: flex;
+    justify-content: start;
+    align-content: center;
+    align-items: center;
+    color: #171d34;
+    font-size: 12px;
+}
+
+.div1 button {
+    margin-right: 50px;
+    padding-inline: 50px;
+    padding-block: 10px;
+    background-color: #ec910a;
+    border: none;
+    border-radius: 10px;
+    color: #fefefe;
+    font-size: 15px;
+    font-weight: bolder;
+    transition: .7s;
+}
+
+.div1 button:hover {
+    background-color: #171d34;
+}
+
+.div1 img {
+    width: 70px;
+    height: 70px;
+}
+
+.hh3 {
+    color: #ffffff;
+}
+
+/* au click */
+.cliquer {
+    background-color: #ffffff;
+}
+
+.h {
+    color: #ec910a;
+}
+
+.gestion {
+    transition: .5s;
+}
+
+/* icon de user */
+.ic{
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+/* tableau */
+.tableau {
+    width: 92%;
+    background-color: #ffffff;
+    margin-top: 30px;
+    margin: 30px;
+    box-shadow: 5px 5px 10px #e3e3e4;
+    border: #eeeeef 3px solid;
+    padding-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.tableau p {
+    padding-top: 15px;
+    margin-bottom: 1px;
+    margin-left: 5%;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #171d34;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    border: #e0e0e3 1px solid;
+    margin-top: 20px;
+    margin-left: 30px;
+    align-self: center;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    table-layout: auto;
+    cursor: pointer;
+    text-align: center;
+    /* box-shadow: 5px 5px 5px rgba(139, 138, 138, 0.2); */
+
+}
+
+table thead {
+    background-color: #ec910a;
+    color: white;
+    table-layout: auto;
+}
+
+thead th {
+    text-align: center;
+    padding-block: 5px;
+    border: #ffffff 1px solid;
+    font-size: 12px;
+    font-weight: bolder;
+    table-layout: auto;
+}
+
+tbody td {
+    text-align: center;
+    padding-block: 5px;
+    max-width: 220px;
+    font-size: 13px;
+    font-weight: 500;
+    border: rgba(233, 231, 231, 0.2) 2px solid;
+    table-layout: auto;
+}
+
+tbody tr {
+    transition: .5s ease-in-out;
+}
+
+tbody tr:hover {
+    background-color: rgb(199, 198, 198);
+}
+
+/* display none */
+/* .div1, #myTable{
+    display: none;
+} */
+
+/* partie formulaire  */
+
+/* partie 1 formulaire */
+.partie1-form {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding-inline: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.partie1-label {
+    font-size: 14px;
+    font-weight: bolder;
+    color: #ec910a;
+    margin-right: 10px;
+}
+
+.partie1-select-input {
+    padding-block: 6px;
+    padding-inline: 5px;
+    border-radius: 5px;
+    border: #e0dddd 2px solid;
+}
+
+.caract {
+    margin-left: 35px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: #29325b;
+}
+
+/* partie 2 formulaire */
+.formulaire{
+    display: none;
+}
+.ensemble1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 3px;
+}
+
+.ensemble-cover-check {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+.cover-check {
+    margin-left: 35px;
+    margin-block: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.cover-check-second {
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+
+}
+
+.cover-check-second label {
+    font-size: 13px;
+    font-weight: bolder;
+    color: #ec910a;
+    margin-right: 5px;
+}
+
+.partie2-select {
+    padding-block: 6px;
+    padding-inline: 3px;
+    border-radius: 5px;
+    border: #e0dddd 2px solid;
+}
+
+.cover-check-second input {
+    padding-block: 6px;
+    padding-inline: 3px;
+    border-radius: 5px;
+    border: #e0dddd 2px solid;
+}
+
+#placehauteur {
+    width: 70px;
+}
+
+#placetatdal {
+    width: 310px;
+}
+
+.block-check {
+    margin-left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.block-check-oui, .block-check-non {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.block-check-oui label, .block-check-non label {
+    margin-inline: 10px;
+    color: #ec910a;
+    font-weight: bolder;
+}
+
+.check {
+    font-size: 14px;
+    font-weight: bolder;
+    color: #3b5eea;
+    margin-right: 10px;
+}
+
+.partie2-label {
+    font-size: 14px;
+    font-weight: bolder;
+    color: #ec910a;
+    margin-right: 10px;
+    margin-left: 35px;
+}
+
+.group-submit {
+    margin-left: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.submit {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding-inline: 10px;
+}
+
+#valider, #annuler {
+    padding: 10px;
+    background-color: #ec910a;
+    color: #ffffff;
+    border: none;
+}
+
+#valider:hover, #annuler:hover {
+    background-color: #f3c27a;
+}
+
+.group-bouton {
+    margin-left: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.group-bouton button {
+    padding: 10px;
+    margin: 10px;
+    background-color: #4f5e9b;
+    color: #ffffff;
+    border: none;
+}
+
+.group-bouton button:hover {
+    background-color: #171d34;
+}
+
+.hr1 {
+    margin-inline: 30px;
+    margin-top: 30px;
+}
+
+.hr2 {
+    margin-inline: 30px;
+    margin-bottom: 30px;
+}
+
+.hr3 {
+    margin-inline: 30px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+.group-s-b {
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.operateur-existant {
+    padding-block: 6px;
+    padding-inline: 5px;
+    border-radius: 5px;
+    border: #e0dddd 2px solid;
+}
+
+.v-gps {
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+/* textaria pour la description de l'environnement */
+.descript {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.desc-environnement {
+    width: 50%;
+    height: 150px;
+    margin-top: 10px;
+    border: #f5f5f7 2px solid;
+}
+
+/* ajouts-photos */
+.ajouts-photos {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    margin-left: 30px;
+}
+
+.ajouts-photos button {
+    margin-left: 420px;
+    padding: 10px;
+    background-color: #ec910a;
+    color: #ffffff;
+    border: none;
+}
+
+.ajouts-photos button:hover {
+    background-color: #29325b;
+}
+
+/* styles sur l'image */
+.contenant-images {
+    border: #e8e8e9 2px solid;
+    margin-inline: 30px;
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenant-images div {
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.contenant-images div button {
+    background-color: #f39f22;
+    color: white;
+    font-weight: bolder;
+    width: 60px;
+    border: none;
+}
+.contenant-images div button:hover {
+    background-color: #29325b;
+}
+
+#image {
+    width: 200px;
+    height: 200px;
+}
+
+/* bouton photos et modal photo .....................*/
+.imgs{
+    height: 200px;
+    width: 200px;
+}
+.image-modal{
+    height: 500px;
+    width: 500px;
+}
+.contenu-modal-photo {
+    height: 600px;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    transition: 1s all ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+.cancel-modal-photo{
+    height: 50px;
+    width: 50px;
+}
+
+/* display de hauteur et dalles si oui ou non */
+.disp {
+    display: none;
+}
+
+/* clientelle */
+.clientelle{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+}
+.clientelle div{
+    margin-bottom: 15px;
+}
+
+/* wifi */
+.second2{
+    margin-bottom: 15px;
+}
+.wifi{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding-right: 88px;
+    margin-bottom: 30px;
+}
+.wifi button{
+    margin-top: 25px;
+    padding-block: 10px;
+    padding-inline: 20px;
+    background-color: #ec910a;
+    color: #ffffff;
+    border: none;
+}
+.wifi button:hover{
+    background-color: #29325b;
+}
+
+/* tableau 2 */
+.tableau2{
+    border: #e0dddd 2px solid;
+    margin-inline: 30px;
+    margin-bottom: 20px;
+}
+.table2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    align-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.table2 button{
+    margin-top: 20px;
+    padding-block: 6px;
+    padding-inline: 20px;
+    background-color: #4f5e9b;
+    color: #ffffff;
+    border: none;
+}
+.table2 button:hover{
+    background-color: #171d34;
+}
+
+/* formulaire-wifi................... */
+.formulaire-wifi{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding-left: 5px;
+    padding-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.formulaire-wifi .submit button{
+    margin-top: 20px;
+    padding-block: 6px;
+    padding-inline: 20px;
+    background-color: #ec910a;
+    color: #ffffff;
+    border: none;
+}
+.formulaire-wifi .submit button:hover{
+    background-color: #29325b;
+}
+.sub{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 350px;
+}
+.sub button{
+    margin-inline: 10px;
+    margin-bottom: 15px;
+    padding-block: 6px;
+    padding-inline: 20px;
+    background-color: #4f5e9b;
+    color: #ffffff;
+    border: none;
+}
+.sub button:hover{
+    background-color: #171d34;
+}
+.bout{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+
+
+/* aspect responsive............................................................... */
+/* Style1................... */
+@media (max-width: 920px) {
+    /* .tableau {
+        width: 95%;
+        background-color: #ffffff;
+        margin: 10px;
+        box-shadow: 5px 5px 10px #e3e3e4;
+        border: #eeeeef 3px solid;
+        padding-bottom: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+    } */
+
+    .col2 {
+        /* width: 80%;
+        padding-top: 70px; */
+        padding-left: 150px;
+    }
+
+    .partie1-form {
+        display: block;
+    }
+    .partie1-form div{
+        margin-top: 20px;
+    }
+
+    /* les coordonnees gps */
+    .gp{
+        margin-bottom: 10px;
+    }
+
+    /* sidebar */
+    .col1 h3 {
+        align-self: center;
+        font-size: 13px;
+    }
+}
+
+
+
+/* Style2................... */
+@media (max-width: 750px) {
+    /* sidebar */
+    .col1none{
+        
+        display: none;
+        transition: 1s ease;
+    }
+
+    /* o */
+
+    .col2 {
+        width: 100%;
+        padding-left: 15px;
+    }
+
+    /* .tableau */
+    .tableau {
+        width: 100%;
+        margin-top: 10px;
+        margin: 5px;
+    }
+
+    .col2 {
+        width: 100%;
+    }
+
+    /* separateurs  */
+    .hr1 {
+        width: 320px;
+        margin-inline: 2px;
+        margin-top: 5px;
+    }
+    
+    .hr2 {
+        margin-inline: 2px;
+        margin-bottom: 5px;
+    }
+    
+    .hr3 {
+        margin-inline: 2px;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+
+    /* wifi */
+    .wifi{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    /* tableau 2 */
+/* .tableau2{
+    width: 350px;
+} */
+table {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+}
+thead th {
+    padding-block: 3px;
+    font-size: 9px;
+}
+
+tbody td {
+    padding-block: 3px;
+    font-size: 10px;
+}
+
+/* bouton photos et modal photo .....................*/
+.imgs{
+    height: 50px;
+    width: 50px;
+}
+
+/* styles sur l'image */
+.contenant-images {
+    margin-inline: 5px;
+    margin-top: 2px;
+    padding: 2px;
+    font-size: 9px;
+}
+
+.contenant-images div {
+    width: 70px;
+    margin: 5px;
+}
+
+.contenant-images div button {
+    font-size: 10px;
+    width: 70px;
+}
+
+/* ajouts-photos */
+.ajouts-photos {
+    font-size: 10px;
+}
+.ajouts-photos button {
+    margin-top: 13px;
+    margin-left: 70px;
+    padding: 5px;
+    font-size: 12pxpx;
+}
+
+.sub{
+    margin-left: 30px;
+}
+.sub button{
+    margin-inline: 5px;
+    margin-bottom: 5px;
+    padding-block: 5px;
+    padding-inline: 5px;
+}
+
+/* boutons annuler et valider */
+.group-submit {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.submit {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-inline: 5px;
+}
+#valider, #annuler {
+    padding: 7px;
+    background-color: #ec910a;
+    color: #ffffff;
+    border: none;
+}
+
+/* navbar2 */
+.div111 {
+    font-size: 9px;
+}
+
+.div1 button {
+    margin-right: 20px;
+    padding-inline: 20px;
+    padding-block: 5px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+.contenu-modal {
+    width: 280px;
+    height: 240px;
+    border-radius: 10px;
+}
+
+
+.body-modal p {
+    margin-inline: 10px;
+    margin-top: 80px;
+    font-size: 12px;
+}
+
+.footer-modal {
+    height: 100px;
+}
+
+.close-modal {
+    margin-right: 10px;
+    padding-inline: 10px;
+    padding-block: 15px;
+    font-size: 10px;
+}
+
+.valider-modal {
+    margin-right: 10px;
+    padding-inline: 10px;
+    padding-block: 15px;
+    font-size: 10px;
+}
+
+/* image modal */
+.image-modal{
+    height: 200px;
+    width: 200px;
+}
+.contenu-modal-photo {
+    height: 260px;
+}
+.cancel-modal-photo{
+    height: 30px;
+    width: 30px;
+}
+
+/* header */
+header nav {
+    margin-right: 40px;
+}
+
+nav img {
+    height: 35px;
+    width: 35px;
+}
+
+nav h1 {
+    font-size: 10px;
+    color: #171d34;
+}
+#username{
+    font-size: 15px;
+}
+
+/* bouton de menu */
+
+.monMenu img{
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+
+/* fermer la sidebar */
+/* .col1 .Mesh3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50px;
+} */
+.col1 {
+    width: 150px;
+    transition: .5s ease;
+    /* transform: translateX(100px); */
+}
+.col1 div {
+    transition: .5s ease;
+    margin-top: 0px;
+}
+.fermer_menu{
+    display: flex;
+    padding: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.fermer_menu img{
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+
+/* faire disparetre l'image du logo */
+.logsow{
+    display: none;
+}
+
+}
+
+
+
+/* Style2................... */
+/* @media (max-width: 560px) {
+    .col2 {
+        width: 350px;
+    }
+} */

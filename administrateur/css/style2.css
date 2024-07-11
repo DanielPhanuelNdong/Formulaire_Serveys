@@ -1,0 +1,92 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #171d34;
+}
+
+/* page numero 1*/
+.container{
+    height: 470px;
+    width: 400px;
+    border-radius: 15px;
+    background-color: aliceblue;
+    margin-top: 50px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container2{
+    align-content: center;
+    text-align: center;
+}
+.logosowitel{
+    height: 150px;
+    width: 200px;
+    align-self: center;
+}
+.login, .passe{
+    height: 33px;
+    width: 300px;
+    margin: 5px;
+    padding-left: 40px;
+}
+/* .login:hover, .passe:hover{
+    background-color: antiquewhite;
+    border: white;
+} */
+.login:focus, .passe:focus{
+    background-color: rgb(255, 255, 255);
+    border: white;
+}
+select::placeholder{
+    color: rgb(173, 173, 175);
+}
+select{
+    position: relative;
+    height: 30px;
+    width: 300px;
+    padding-left: 30px;
+}
+option{
+    font-size: 15px;
+    font-weight: bolder;
+}
+.icon1{
+    position: absolute;
+    top: 370px;
+    left: 500px;
+    color: #ec910a;
+}
+
+.valider, .annuler{
+    height: 40px;
+    width: 300;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 20px;
+    background-color: #ec910a;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    border: white 5px;
+}
+.valider:hover, .annuler:hover{
+    background-color: #171d34;
+    color: white;
+    cursor: pointer;
+}
+p{
+    color: #ec910a;
+    font-weight: bolder;
+}
+h1{
+    color: #171d34;
+    
+}

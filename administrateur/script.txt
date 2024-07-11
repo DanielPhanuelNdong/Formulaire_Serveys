@@ -1,0 +1,224 @@
+
+		vcodesvue[0] := cudcms.creationvue('identificationcompte', convert_from('La vue d''identification d''un compte utilisateur.', 'WIN1252'));
+		vcodesvue[1] := cudcms.creationvue('choixprofilconnexion', convert_from('La vue du choix d''un profil de connexion à un espace de travail.', 'WIN1252'));
+	
+		vcodesvue[2] := cudcms.creationvue('editionadministrateurs', convert_from('Le formulaire d''édition des serveys.', 'WIN1252'));	
+		vcodesvue[3] := cudcms.creationvue('editionadministrateur', convert_from('Le formulaire d''édition d''un servey.', 'WIN1252'));	
+		vcodesvue[4] := cudcms.creationvue('creationadministrateur', convert_from('Le formulaire d''édition des images des serveys.', 'WIN1252'));	
+		vcodesvue[5] := cudcms.creationvue('confirmationvalidationadministrateur', convert_from('Le formulaire d''édition d''une image d''un servey.', 'WIN1252'));
+		vcodesvue[6] := cudcms.creationvue('confirmationannulationadministrateur', convert_from('Le formulaire de création d''un nouveau servey.', 'WIN1252'));		
+		vcodesvue[7] := cudcms.creationvue('confirmationmodificationadministrateur', convert_from('Le formulaire de création d''une nouvelle image d''un servey.', 'WIN1252'));	
+		vcodesvue[8] := cudcms.creationvue('confirmationsuppressionadministrateur', convert_from('Le formulaire de confirmation de la création d''un servey.', 'WIN1252'));
+		vcodesvue[9] := cudcms.creationvue('confirmationactivationadministrateur', convert_from('Le formulaire de confirmation de la modification d''un servey.', 'WIN1252'));
+		vcodesvue[10] := cudcms.creationvue('confirmationblockageadministrateur', convert_from('Le formulaire de confirmation de la suppression d''un servey.', 'WIN1252'));
+		
+		
+		--composants de la vue identificationcompte et choixprofilconnexion
+		vcodescompo[0] := cudcms.creationcomposant('enteteconnexionweb', convert_from('Entête du formulaire de connexion web.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('logo', 'Logo de Sowitel.', vcodescompo[0]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', 'images/logo.png', vcodeconten);
+		vcodeconten := cudcms.creationcontenu('titre', 'Titre du formulaire de connexion web.', vcodescompo[0]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', 'Bienvenue,', vcodeconten);
+		--composants de la vue identificationcompte
+		vcodescompo[1] := cudcms.creationcomposant('formidentificationweb', convert_from('Formulaire d''identification du compte utilisateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('soustitre', 'Sous-titre du formulaire d''identification web.', vcodescompo[1]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Indiquez vos paramètres de connexion, afin d''être identifié.', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lblogin', 'Label du champ de saisie du login.', vcodescompo[1]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', 'Login', vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbmdp', 'Label du champ de saisie du mot de passe.', vcodescompo[1]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', 'Mot de passe', vcodeconten);
+		vcodeconten := cudcms.creationcontenu('valbtnsidentifier', 'Valeur du bouton S''identifier.', vcodescompo[1]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', 'S''identifier', vcodeconten);
+		--composants de la vue choixprofilconnexion
+		vcodescompo[2] := cudcms.creationcomposant('formchoixprofilconnexionweb', convert_from('Formulaire de choix d''un profil de connexion.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('soustitre', 'Sous-titre du formulaire de choix d''un profil de connexion.', vcodescompo[2]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Choisissez votre profil de connexion.', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbprofils', convert_from('Label du champ de sélection d''un profil.', 'WIN1252'), vcodescompo[2]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', 'Profils', vcodeconten);
+		vcodeconten := cudcms.creationcontenu('valbtnvalider', 'Valeur du bouton Valider.', vcodescompo[2]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', 'Valider', vcodeconten);
+		vcodeconten := cudcms.creationcontenu('valbtnannuler', 'Valeur du bouton Annuler.', vcodescompo[2]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', 'Annuler', vcodeconten);
+	
+		--composants de la vue identificationcompte et choixprofilconnexion
+	
+		--composants de la vue editionadministrateurs
+		vcodescompo[3] := cudcms.creationcomposant('navbar', convert_from('La barre haute de l''application.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('imgprofil', convert_from('image de profile pour administrateur.', 'WIN1252'), vcodescompo[3]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('images/avatar.png', 'WIN1252'), vcodeconten);
+		
+		vcodescompo[4] := cudcms.creationcomposant('sidebar', convert_from('La barre gauche de l''application.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('lbgestionadministrateurs', convert_from('Le label gestions administrateurs.', 'WIN1252'), vcodescompo[4]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Gestion administrateurs', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbdeconnexion', convert_from('Bouton pour se decnnecter.', 'WIN1252'), vcodescompo[4]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Déconnexion', 'WIN1252'), vcodeconten);
+		
+		vcodescompo[5] := cudcms.creationcomposant('gestionbar1', convert_from('La barre de gestion sur édition des administrateurs.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('lbgestdesadministrateurs', convert_from('Le label gestions des administrateurs.', 'WIN1252'), vcodescompo[5]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Gestion des administrateurs', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbeditadministrateurs', convert_from('Le label pour edition administrateurs.', 'WIN1252'), vcodescompo[5]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Edition des administrateurs', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btncreeradministrateur', convert_from('Le bouton pour la création des administrateurs.', 'WIN1252'), vcodescompo[5]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Créer', 'WIN1252'), vcodeconten);
+		
+		vcodescompo[6] := cudcms.creationcomposant('espacecontenair', convert_from('Espace contenant les administrateurs.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('lblistadministrateurs', convert_from('Le label pour la liste des administrateurs.', 'WIN1252'), vcodescompo[6]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Liste administrateurs', 'WIN1252'), vcodeconten);
+		
+		vcodescompo[7] := cudcms.creationcomposant('tablesadministrateurs', convert_from('Le tableau des administrateurs.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('colnom', convert_from('colonne des noms des administrateurs.', 'WIN1252'), vcodescompo[7]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Noms', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('colprenom', convert_from('colonne des prenoms des administrateurs.', 'WIN1252'), vcodescompo[7]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Prénoms', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('colnumtel', convert_from('colonne des numeros de telephones des administrateurs.', 'WIN1252'), vcodescompo[7]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Numéros de téléphone', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('colemail', convert_from('colonne des emails.', 'WIN1252'), vcodescompo[7]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('emails', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('colstatut', convert_from('colonne des statuts.', 'WIN1252'), vcodescompo[7]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Statuts', 'WIN1252'), vcodeconten);
+
+		
+		--composants de la vue editionadministrateur ..............................................................................
+		--la vue editionadministrateur contient egalement les composants Navbar et Sidebar
+		
+		vcodescompo[8] := cudcms.creationcomposant('gestionbar2', convert_from('La barre de gestion sur édition d''un administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('lbgestunadministrateur', convert_from('Le label pour gestion d''un administrateur.', 'WIN1252'), vcodescompo[8]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Gestion d''un administrateur', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbeditunadministrateur', convert_from('le label pour edition de l''administrateur.', 'WIN1252'), vcodescompo[8]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Edition d''un administrateur', 'WIN1252'), vcodeconten);
+		
+		vcodescompo[9] := cudcms.creationcomposant('enteteadministrateur', convert_from('Partie entete de administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('lbnom', convert_from('Le label du nom de l''administrateur.', 'WIN1252'), vcodescompo[9]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Nom', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbprenom', convert_from('le label du prenom.', 'WIN1252'), vcodescompo[9]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Prénom', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbnumtel', convert_from('le label du numéro de telephone.', 'WIN1252'), vcodescompo[9]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Numéro de téléphone', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbemail', convert_from('le label de ladresse mail.', 'WIN1252'), vcodescompo[9]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Email', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbcodepin', convert_from('le label du code pin.', 'WIN1252'), vcodescompo[9]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Code pin', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbmotdepasse', convert_from('le label pour mot de passe.', 'WIN1252'), vcodescompo[9]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Mot de passe', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbstatut', convert_from('le label pour statut.', 'WIN1252'), vcodescompo[9]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Statut', 'WIN1252'), vcodeconten);
+		
+		
+		vcodescompo[10] := cudcms.creationcomposant('footeradministrateur', convert_from('Partie footer du servey.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnmodifadministrateur', convert_from('bouton pour modifier un administrateur.', 'WIN1252'), vcodescompo[10]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Modifier', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnsuppadministrateur', convert_from('bouton pour supprimer un administrateur.', 'WIN1252'), vcodescompo[10]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Supprimer', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnactiveradministrateur', convert_from('bouton pour activer un administrateur.', 'WIN1252'), vcodescompo[10]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Activer', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnbloqueradministrateur', convert_from('bouton pour bloquer un administrateur.', 'WIN1252'), vcodescompo[10]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Bloquer', 'WIN1252'), vcodeconten);
+
+		
+		--composants de la vue Creationadministrateur.............................................................................
+		--la vue Creationadministrateur contient egalement les composants Navbar et Sidebar
+		
+		vcodescompo[11] := cudcms.creationcomposant('entetecreatadministrateur', convert_from('Partie entete pour création d''un administrateur.', 'WIN1252'), null);
+		--ce composant contient tout le contenu de enteteservey1 d'aboord, plus d'autres elements tels;
+		vcodeconten := cudcms.creationcontenu('lbnom', convert_from('Le label du nom de l''administrateur.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Nom', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbprenom', convert_from('le label du prenom.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Prénom', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbnumtel', convert_from('le label du numéro de telephone.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Numéro de téléphone', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbemail', convert_from('le label de ladresse mail.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Email', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbcodepin', convert_from('le label du code pin.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Code pin', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbmotdepasse', convert_from('le label pour mot de passe.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Mot de passe', 'WIN1252'), vcodeconten);
+	    vcodeconten := cudcms.creationcontenu('lbcreationadministrateur', convert_from('le label creation d''un administrateur.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Création d''un administrateur', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('placenom', convert_from('Placeholder du nom administrateur.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Nom', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('placeprenom', convert_from('Placeholder du prénom.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Prenom', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('placenumtel', convert_from('Placeholder du numero d''un administrateur.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Numéro de téléphone', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('placemail', convert_from('Placeholder pour email.', 'WIN1252'), vcodescompo[11]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Email', 'WIN1252'), vcodeconten);
+		
+		
+		vcodescompo[12] := cudcms.creationcomposant('footercreatadministrateur', convert_from('Partie footer pour création d''un administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnvalidercreatadministrateur', convert_from('bouton pour valider la création d''un administrateur.', 'WIN1252'), vcodescompo[12]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Valider', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnannulercreatadministrateur', convert_from('bouton pour annuler la création d''un administrateur.', 'WIN1252'), vcodescompo[12]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Annuler', 'WIN1252'), vcodeconten);
+		
+		
+		--composants de la vue confirmationvalidationadministrateur ..............................................................................
+		vcodescompo[13] := cudcms.creationcomposant('modalconfirmvalidcreatadministrateur', convert_from('modal de confirmation de la creation administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnvalidconfirmvalidcreatadministrateur', convert_from('bouton pour valider la création administrateur.', 'WIN1252'), vcodescompo[13]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Valider', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnannulconfirmvalidcreatadministrateur', convert_from('bouton pour annuler la création administrateur.', 'WIN1252'), vcodescompo[13]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Annuler', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbmodalconfvalidcreatadministrateur', convert_from('label de confirmation de la creation administrateur.', 'WIN1252'), vcodescompo[13]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Voulez-vous vraiment valider la création de cet administrateur ?', 'WIN1252'), vcodeconten);
+		
+							
+		--composants de la vue confirmationannulationadministrateur ..............................................................................
+		vcodescompo[14] := cudcms.creationcomposant('modalconfirmannulcreatadministrateur', convert_from('modal d''annulation de la creation administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnvalidconfirmannulcreatadministrateur', convert_from('bouton pour annuler la création administrateur.', 'WIN1252'), vcodescompo[14]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Valider', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnannulconfirmannulcreatadministrateur', convert_from('bouton pour annuler la création administrateur.', 'WIN1252'), vcodescompo[14]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Annuler', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbmodalconfannulcreatadministrateur', convert_from('label d''anulatin de la creation administrateur.', 'WIN1252'), vcodescompo[14]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Voulez-vous vraiment annuler la création de cet administrateur ?', 'WIN1252'), vcodeconten);
+		
+		--composants de la vue modificationadministrateur ..............................................................................
+		--il comporte tous les elements de la vue editionadministrateur plus:
+	    vcodescompo[15] := cudcms.creationcomposant('modifadministrateur', convert_from('modification administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnvalidmodifadministrateur', convert_from('bouton pour valider la modification administrateur.', 'WIN1252'), vcodescompo[15]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Valider', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnannulmodifadministrateur', convert_from('bouton pour annuler la modification administrateur.', 'WIN1252'), vcodescompo[15]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Annuler', 'WIN1252'), vcodeconten);
+	
+	
+		--composants de la vue confirmationmodificationadministrateur ..............................................................................
+		vcodescompo[16] := cudcms.creationcomposant('confirmodifadministrateur', convert_from('confirmation de la confirmation de modification administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnvalidconfirmodifadministrateur', convert_from('bouton pour valider confirmation de la modification administrateur.', 'WIN1252'), vcodescompo[16]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Valider', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnannulconfirmodifadministrateur', convert_from('bouton pour annuler confirmation de la modification administrateur.', 'WIN1252'), vcodescompo[16]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Annuler', 'WIN1252'), vcodeconten);
+	
+		
+	
+		--composants de la vue confirmationsuppressionadministrateur ..............................................................................
+		vcodescompo[17] := cudcms.creationcomposant('confirmsuppadministrateur', convert_from('confirmation de la suppréssion administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnvalidconfirmsuppadministrateur', convert_from('bouton pour valider la suppréssion administrateur.', 'WIN1252'), vcodescompo[17]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Valider', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnannulconfirmsuppadministrateur', convert_from('bouton pour annuler la suppréssion administrateur.', 'WIN1252'), vcodescompo[17]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Annuler', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbmodalconfirmsuppadministrateur', convert_from('label de confirmation de la suppression administrateur.', 'WIN1252'), vcodescompo[17]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Voulez-vous vraiment supprimer cet administrateur ?', 'WIN1252'), vcodeconten);
+	
+		
+	
+		--composants de la vue confirmationactivationadministrateur ..............................................................................
+		vcodescompo[18] := cudcms.creationcomposant('confirmactiveadministrateur', convert_from('confirmation de l''activation administrateur.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnvalidconfirmactiveadministrateur', convert_from('bouton pour valider l''activation administrateur.', 'WIN1252'), vcodescompo[18]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Valider', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnannulconfirmactiveadministrateur', convert_from('bouton pour annuler l''activation administrateur.', 'WIN1252'), vcodescompo[18]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Annuler', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbmodalconfirmactiveadministrateur', convert_from('label de confirmation de la suppression administrateur.', 'WIN1252'), vcodescompo[18]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Voulez-vous vraiment activer cet administrateur ?', 'WIN1252'), vcodeconten);
+	
+		 
+
+		--composants de la vue confirmationblockageadministrateur ..............................................................................
+		vcodescompo[19] := cudcms.creationcomposant('confirmblockservey', convert_from('confirmation de la soumission servey.', 'WIN1252'), null);
+		vcodeconten := cudcms.creationcontenu('btnvalidconfirmblockservey', convert_from('bouton pour valider le blockage d''un administrateur.', 'WIN1252'), vcodescompo[19]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Valider', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('btnannulconfirmblockservey', convert_from('bouton pour annuler le blckage d''un administrateur.', 'WIN1252'), vcodescompo[19]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Annuler', 'WIN1252'), vcodeconten);
+		vcodeconten := cudcms.creationcontenu('lbconfirmblockservey', convert_from('Label pour le blockage d''un administrateur.', 'WIN1252'), vcodescompo[19]);
+		vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Voulez-vous vraiment bloquer cet administrateur ?', 'WIN1252'), vcodeconten);
+	
+		
+	
+	
